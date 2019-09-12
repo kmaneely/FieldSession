@@ -9,15 +9,43 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+        <activity
+            android:name=".AdviceActivity"
+            android:label="@string/title_activity_advice_press"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.lifescribev01.MainActivity" />
         </activity>
-
-        <activity android:name=".FamilyTreeActivity">
+        <activity
+            android:name=".StoriesActivity"
+            android:label="@string/title_activity_stories"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.lifescribev01.MainActivity" />
+        </activity>
+        <activity
+            android:name=".PeopleActivity"
+            android:label="@string/title_activity_people"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.lifescribev01.MainActivity" />
+        </activity>
+        <activity
+            android:name=".FamilyTreeActivity"
+            android:label="@string/title_activity_family_tree"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.lifescribev01.MainActivity" />
+        </activity>
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

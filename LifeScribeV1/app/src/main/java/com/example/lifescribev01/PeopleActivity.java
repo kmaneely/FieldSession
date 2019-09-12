@@ -10,14 +10,12 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.view.View;
 
-import com.example.lifescribev01.R;
-
-public class FamilyTreeActivity extends AppCompatActivity {
+public class PeopleActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_family_tree);
+        setContentView(R.layout.activity_people2);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 

@@ -22,33 +22,36 @@
         android:id="@+id/StoriesButton"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:background="#fcbff5"
+        android:onClick="storiesPress"
         android:text="Stories"
         app:layout_constraintBottom_toTopOf="@+id/PeopleButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/TreeButton"
-        app:layout_constraintTop_toTopOf="parent"
-        android:background="#fcbff5"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/AdviceButton"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:background="#bff5fc"
+        android:onClick="advicePress"
         android:text="Advice"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/PeopleButton"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TreeButton"
-        android:background="#bff5fc"/>
+        app:layout_constraintTop_toBottomOf="@+id/TreeButton" />
 
     <Button
         android:id="@+id/PeopleButton"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:background="#fcc6bf"
+        android:onClick="peoplePress"
         android:text="People"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/AdviceButton"
-        app:layout_constraintTop_toBottomOf="@+id/StoriesButton"
-        android:background="#fcc6bf"/>
+        app:layout_constraintTop_toBottomOf="@+id/StoriesButton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
