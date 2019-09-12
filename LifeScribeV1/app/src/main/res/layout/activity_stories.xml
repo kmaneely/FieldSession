@@ -30,4 +30,10 @@
         android:layout_margin="@dimen/fab_margin"
         app:srcCompat="@android:drawable/ic_input_add" />
 
+    <SearchView
+        android:layout_marginTop="?attr/actionBarSize"
+        android:layout_width="match_parent"
+        android:layout_height="30dp" />
+
+
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
