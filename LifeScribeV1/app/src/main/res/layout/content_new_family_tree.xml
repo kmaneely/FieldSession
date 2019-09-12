@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".PeopleActivity"
-    tools:showIn="@layout/activity_people">
+    tools:context=".NewFamilyTree"
+    tools:showIn="@layout/activity_new_family_tree">
 
 </androidx.constraintlayout.widget.ConstraintLayout>

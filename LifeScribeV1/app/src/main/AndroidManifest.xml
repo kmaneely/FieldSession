@@ -5,13 +5,49 @@
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
+        android:label="LifeScribe"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".NewAdvice"
+            android:label="New Advice"
+            android:parentActivityName=".AdviceActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.lifescribev01.AdviceActivity" />
+        </activity>
+        <activity
+            android:name=".NewStory"
+            android:label="New Story"
+            android:parentActivityName=".StoriesActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.lifescribev01.StoriesActivity" />
+        </activity>
+        <activity
+            android:name=".NewPeople"
+            android:label="New Person"
+            android:parentActivityName=".PeopleActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.lifescribev01.PeopleActivity" />
+        </activity>
+        <activity
+            android:name=".NewFamilyTree"
+            android:label="New Family Tree"
+            android:parentActivityName=".FamilyTreeActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.lifescribev01.FamilyTreeActivity" />
+        </activity>
+        <activity
             android:name=".AdviceActivity"
-            android:label="@string/title_activity_advice_press"
+            android:label="Advice"
             android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
@@ -20,7 +56,7 @@
         </activity>
         <activity
             android:name=".StoriesActivity"
-            android:label="@string/title_activity_stories"
+            android:label="Stories"
             android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
@@ -29,7 +65,7 @@
         </activity>
         <activity
             android:name=".PeopleActivity"
-            android:label="@string/title_activity_people"
+            android:label="People"
             android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
@@ -38,7 +74,7 @@
         </activity>
         <activity
             android:name=".FamilyTreeActivity"
-            android:label="@string/title_activity_family_tree"
+            android:label="Family Trees"
             android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data

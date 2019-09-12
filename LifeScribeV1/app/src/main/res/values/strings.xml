@@ -17,4 +17,8 @@
     <string name="title_activity_family_tree">FamilyTreeActivity</string>
     <string name="title_activity_stories">StoriesActivity</string>
     <string name="title_activity_advice_press">AdvicePress</string>
+    <string name="title_activity_new_family_tree">NewFamilyTree</string>
+    <string name="title_activity_new_people">NewPeople</string>
+    <string name="title_activity_new_story">NewStory</string>
+    <string name="title_activity_new_advice">NewAdvice</string>
 </resources>

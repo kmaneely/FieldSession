@@ -1,6 +1,5 @@
 package com.example.lifescribev01;
 
-import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -11,12 +10,12 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.view.View;
 
-public class StoriesActivity extends AppCompatActivity {
+public class NewStory extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_stories);
+        setContentView(R.layout.activity_new_story);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -24,7 +23,8 @@ public class StoriesActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(StoriesActivity.this, NewStory.class));
+                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
             }
         });
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);

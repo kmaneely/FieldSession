@@ -1,5 +1,6 @@
 package com.example.lifescribev01;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -25,11 +26,9 @@ public class FamilyTreeActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                startActivity(new Intent(FamilyTreeActivity.this, NewFamilyTree.class));
             }
         });
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
-
 }
