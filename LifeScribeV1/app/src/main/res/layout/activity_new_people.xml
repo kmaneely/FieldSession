@@ -31,7 +31,8 @@
         <EditText
             android:id="@+id/name"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="0.1"
             android:ems="10"
             android:inputType="textPersonName"
             android:text="Name" />
@@ -39,18 +40,18 @@
         <EditText
             android:id="@+id/DOB"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="0.1"
             android:ems="10"
             android:inputType="date"
             android:clickable="true"
-            android:editable="false"
-            android:focusableInTouchMode="false"
             android:hint="Date of Birth" />
 
         <EditText
             android:id="@+id/DOD"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="0.1"
             android:ems="10"
             android:inputType="date"
             android:hint="Date of Death" />
@@ -58,10 +59,20 @@
         <EditText
             android:id="@+id/bio"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.6"
             android:ems="10"
             android:inputType="textPersonName"
             android:text="Bio" />
+
+        <Button
+            android:id="@+id/submit"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.1"
+            android:text="Submit"
+            android:visibility="visible" />
+
     </LinearLayout>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
