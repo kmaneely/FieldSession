@@ -32,9 +32,12 @@ public class NewPeople extends AppCompatActivity {
                 final EditText dobField = (EditText) findViewById(R.id.DOB);
                 DOB = dobField.getText().toString();
                 final EditText dodField = (EditText) findViewById(R.id.DOD);
-                DOD = dobField.getText().toString();
+                DOD = dodField.getText().toString();
                 final EditText bioField = (EditText) findViewById(R.id.bio);
-                bio = dobField.getText().toString();
+                bio = bioField.getText().toString();
+
+
+
                 //startActivity(new Intent(NewPeople.this, PeopleActivity.class));
                 finish();
             }
