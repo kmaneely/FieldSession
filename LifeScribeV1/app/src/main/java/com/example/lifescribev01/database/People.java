@@ -4,6 +4,8 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+import java.util.Date;
+
 @Entity
 public class People {
     @PrimaryKey
@@ -13,9 +15,9 @@ public class People {
     @ColumnInfo (name = "last_name")
     public String lastName;
     @ColumnInfo (name = "birth_date")
-    public Date birthDate;
+    public String birthDate;
     @ColumnInfo (name = "death_date")
-    public Date deathDate;
+    public String deathDate;
     @ColumnInfo (name = "biography")
     public String bio;
 }

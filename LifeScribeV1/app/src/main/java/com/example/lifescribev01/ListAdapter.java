@@ -1,61 +1,57 @@
 package com.example.lifescribev01;
 
-import android.content.Intent;
-import android.os.Bundle;
-
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
-
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.RecyclerView;
-import android.view.ViewGroup;
+
 import android.widget.TextView;
+import android.view.View;
+import android.view.ViewGroup;
 import android.view.LayoutInflater;
+import android.content.Context;
 
-public class ListAdapter extends RecyclerView.Adapter<ListAdapter.MyViewHolder> {
-    private String[] mDataset;
+// Create the basic adapter extending from RecyclerView.Adapter
+// Note that we specify the custom ViewHolder which gives us access to our views
+public class ListAdapter extends
+        RecyclerView.Adapter<ListAdapter.ViewHolder> {
 
-    // Provide a reference to the views for each data item
-    // Complex data items may need more than one view per item, and
-    // you provide access to all the views for a data item in a view holder
-    public static class MyViewHolder extends RecyclerView.ViewHolder {
-        // each data item is just a string in this case
-        public TextView textView;
-        public MyViewHolder(TextView v) {
-            super(v);
-            textView = v;
+    // Provide a direct reference to each of the views within a data item
+    // Used to cache the views within the item layout for fast access
+    public class ViewHolder extends RecyclerView.ViewHolder {
+        // Your holder should contain a member variable
+        // for any view that will be set as you render a row
+        public TextView nameTextView;
+
+        // We also create a constructor that accepts the entire item row
+        // and does the view lookups to find each subview
+        public ViewHolder(View itemView) {
+            // Stores the itemView in a public final member variable that can be used
+            // to access the context from any ViewHolder instance.
+            super(itemView);
+
+            nameTextView = (TextView) itemView.findViewById(R.id.nameTextView);
         }
     }
 
-    // Provide a suitable constructor (depends on the kind of dataset)
-    public ListAdapter(String[] myDataset) {
-        mDataset = myDataset;
-    }
-
-    // Create new views (invoked by the layout manager)
     @Override
-    public ListAdapter.MyViewHolder onCreateViewHolder(ViewGroup parent,
-                                                     int viewType) {
-        // create a new view
-        TextView v = (TextView) LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.my_text_view, parent, false);
-        MyViewHolder vh = new MyViewHolder(v);
-        return vh;
+    public ListAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        Context context = parent.getContext();
+        LayoutInflater inflater = LayoutInflater.from(context);
+
+        // Inflate the custom layout
+        View listView = inflater.inflate(R.layout.list_item, parent, false);
+
+        // Return a new holder instance
+        ViewHolder viewHolder = new ViewHolder(listView);
+        return viewHolder;
     }
 
-    // Replace the contents of a view (invoked by the layout manager)
     @Override
-    public void onBindViewHolder(MyViewHolder holder, int position) {
-        // - get element from your dataset at this position
-        // - replace the contents of the view with that element
-        holder.textView.setText(mDataset[position]);
+    public void onBindViewHolder(ListAdapter.ViewHolder viewHolder, int position) {
 
+        // Set item views based on your views and data model
+        TextView textView = viewHolder.nameTextView;
     }
-
-    // Return the size of your dataset (invoked by the layout manager)
     @Override
     public int getItemCount() {
-        return mDataset.length;
+        return 0; //mContacts.size();
     }
 }
