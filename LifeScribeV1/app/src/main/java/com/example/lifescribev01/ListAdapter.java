@@ -8,6 +8,9 @@ import android.view.ViewGroup;
 import android.view.LayoutInflater;
 import android.content.Context;
 
+import java.util.ArrayList;
+import java.util.List;
+
 // Create the basic adapter extending from RecyclerView.Adapter
 // Note that we specify the custom ViewHolder which gives us access to our views
 public class ListAdapter extends
@@ -31,6 +34,14 @@ public class ListAdapter extends
         }
     }
 
+    // Store a member variable for the contacts
+    private List<String> mTest;
+
+    // Pass in the contact array into the constructor
+    public ListAdapter(List<String> tests) {
+        mTest = tests;
+    }
+
     @Override
     public ListAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         Context context = parent.getContext();
@@ -46,12 +57,13 @@ public class ListAdapter extends
 
     @Override
     public void onBindViewHolder(ListAdapter.ViewHolder viewHolder, int position) {
-
+        String test = mTest.get(position);
         // Set item views based on your views and data model
         TextView textView = viewHolder.nameTextView;
+        textView.setText(test);
     }
     @Override
     public int getItemCount() {
-        return 0; //mContacts.size();
+        return mTest.size();
     }
 }
