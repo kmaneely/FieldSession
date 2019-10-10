@@ -8,12 +8,10 @@ import java.util.Date;
 
 @Entity
 public class People {
-    @PrimaryKey
+    @PrimaryKey (autoGenerate = true)
     public int uid;
-    @ColumnInfo (name = "first_name")
-    public String firstName;
-    @ColumnInfo (name = "last_name")
-    public String lastName;
+    @ColumnInfo (name = "name")
+    public String name;
     @ColumnInfo (name = "birth_date")
     public String birthDate;
     @ColumnInfo (name = "death_date")
