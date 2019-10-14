@@ -2,6 +2,7 @@ package com.example.lifescribev01;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.widget.EditText;
 import android.widget.TextView;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,7 +22,7 @@ public class ListAdapter extends
     public class ViewHolder extends RecyclerView.ViewHolder {
         // Your holder should contain a member variable
         // for any view that will be set as you render a row
-        public TextView nameTextView;
+        public EditText nameTextView;
 
         // We also create a constructor that accepts the entire item row
         // and does the view lookups to find each subview
@@ -30,7 +31,7 @@ public class ListAdapter extends
             // to access the context from any ViewHolder instance.
             super(itemView);
 
-            nameTextView = (TextView) itemView.findViewById(R.id.nameTextView);
+            nameTextView = (EditText) itemView.findViewById(R.id.nameTextView);
         }
     }
 
@@ -59,7 +60,7 @@ public class ListAdapter extends
     public void onBindViewHolder(ListAdapter.ViewHolder viewHolder, int position) {
         String test = mTest.get(position);
         // Set item views based on your views and data model
-        TextView textView = viewHolder.nameTextView;
+        EditText textView = viewHolder.nameTextView;
         textView.setText(test);
     }
     @Override
