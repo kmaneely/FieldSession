@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.example.lifescribev01.database.AppDatabase;
-import com.example.lifescribev01.database.People;
+import com.example.lifescribev01.database.Person;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -30,9 +30,9 @@ public class PeopleActivity extends AppCompatActivity {
         AppDatabase appDb = MainActivity.GetDatabase();
 
         RecyclerView tesList = (RecyclerView) findViewById(R.id.peopleList);
-        List<People> dbPeople = appDb.peopleDao().getAll();
+        List<Person> dbPeople = appDb.personDao().getAll();
         List<String> tList = new ArrayList<String>();
-        for (People p: dbPeople) {
+        for (Person p: dbPeople) {
             tList.add(p.name);
         }
         ListAdapter adapter = new ListAdapter(tList);

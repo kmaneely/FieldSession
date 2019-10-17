@@ -1,15 +1,13 @@
 package com.example.lifescribev01.database;
 
-import androidx.room.ColumnInfo;
-import androidx.room.Entity;
-import androidx.room.PrimaryKey;
-
-import java.util.Date;
+import androidx.annotation.NonNull;
+import androidx.room.*;
 
 @Entity
-public class People {
+public class Person {
+    @NonNull
     @PrimaryKey (autoGenerate = true)
-    public int uid;
+    public int personID;
     @ColumnInfo (name = "name")
     public String name;
     @ColumnInfo (name = "birth_date")
@@ -18,4 +16,6 @@ public class People {
     public String deathDate;
     @ColumnInfo (name = "biography")
     public String bio;
+    @ColumnInfo (name = "spouse_id")
+    public int spouseID;
 }

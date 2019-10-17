@@ -4,7 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.example.lifescribev01.database.AppDatabase;
-import com.example.lifescribev01.database.People;
+import com.example.lifescribev01.database.Person;
+import com.example.lifescribev01.database.Person;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -25,7 +26,7 @@ public class NewPeople extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        final People testPerson = new People();
+        final Person testPerson = new Person();
         final AppDatabase appDb = MainActivity.GetDatabase();
 
         Button fab = findViewById(R.id.submit);
@@ -44,7 +45,7 @@ public class NewPeople extends AppCompatActivity {
                 testPerson.birthDate = DOB;
                 testPerson.deathDate = DOD;
                 testPerson.bio = bio;
-                appDb.peopleDao().insertAll(testPerson);
+                appDb.personDao().insert(testPerson);
 
 
 

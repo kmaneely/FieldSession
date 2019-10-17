@@ -8,18 +8,18 @@ import androidx.room.Query;
 import java.util.List;
 
 @Dao
-public interface PeopleDao {
+public interface PersonDao {
     @Query("SELECT * FROM person")
     List<Person> getAll();
 
-    @Query("SELECT * FROM person WHERE uid IN (:userIds)")
+    @Query("SELECT * FROM person WHERE personID IN (:userIds)")
     List<Person> loadAllByIds(int[] userIds);
 
     @Query("SELECT * FROM person WHERE name")
     Person findByName(String name);
 
     @Insert
-    void insertAll(Person people);
+    void insert(Person people);
 
     @Delete
     void delete(Person people);
