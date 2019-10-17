@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.View;
+import android.widget.EditText;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,11 +41,21 @@ public class PeopleActivity extends AppCompatActivity {
         peopleList.setAdapter(adapter);
         peopleList.setLayoutManager(new LinearLayoutManager(this));
 
+        /*EditText selectedPerson = (EditText) findViewById(R.id.nameTextView);
+        selectedPerson.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                System.out.println("hi");
+            }
+
+        }); */
+
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(PeopleActivity.this, NewPeople.class));
+                finish();
             }
         });
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);

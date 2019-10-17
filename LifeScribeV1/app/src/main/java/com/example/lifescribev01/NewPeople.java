@@ -49,7 +49,7 @@ public class NewPeople extends AppCompatActivity {
 
 
 
-                //startActivity(new Intent(NewPeople.this, PeopleActivity.class));
+                startActivity(new Intent(NewPeople.this, PeopleActivity.class));
                 finish();
             }
         });
