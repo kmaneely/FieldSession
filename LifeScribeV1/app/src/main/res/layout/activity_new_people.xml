@@ -35,7 +35,7 @@
             android:layout_weight="0.1"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Name" />
+            android:hint="Name" />
 
         <EditText
             android:id="@+id/DOB"
@@ -63,7 +63,7 @@
             android:layout_weight="0.6"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Bio" />
+            android:hint="Bio" />
 
         <Button
             android:id="@+id/submit"
