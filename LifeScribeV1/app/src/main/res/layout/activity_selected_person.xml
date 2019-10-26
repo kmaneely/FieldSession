@@ -34,7 +34,7 @@
             android:layout_height="0dp"
             android:layout_weight="0.1"
             android:ems="10"
-            android:inputType="textPersonName"
+            android:focusable="false"
             android:hint="Name" />
 
         <EditText
@@ -42,10 +42,11 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="0.1"
+            android:clickable="false"
             android:ems="10"
-            android:inputType="date"
-            android:clickable="true"
-            android:hint="Date of Birth" />
+            android:focusable="false"
+            android:hint="Date of Birth"
+            android:inputType="date" />
 
         <EditText
             android:id="@+id/DOD"
@@ -54,6 +55,7 @@
             android:layout_weight="0.1"
             android:ems="10"
             android:inputType="date"
+            android:focusable="false"
             android:hint="Date of Death" />
 
         <EditText
@@ -62,6 +64,7 @@
             android:layout_height="0dp"
             android:layout_weight="0.6"
             android:ems="10"
+            android:focusable="false"
             android:inputType="textPersonName"
             android:hint="Bio" />
 

@@ -35,6 +35,7 @@ public class NewPeople extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         final Person testPerson = new Person();
         final AppDatabase appDb = MainActivity.GetDatabase();
 
@@ -72,6 +73,8 @@ public class NewPeople extends AppCompatActivity {
                 testPerson.deathDate = DOD;
                 testPerson.bio = bio;
                 appDb.personDao().insert(testPerson);
+                System.out.println(testPerson.personID);
+
 
                 startActivity(new Intent(NewPeople.this, PeopleActivity.class));
                 finish();
