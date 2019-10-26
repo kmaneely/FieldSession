@@ -19,6 +19,7 @@ public interface PersonDao {
     Person findByName(String name);
 
     @Query("SELECT * FROM person WHERE person_id IS :id")
+
     Person findByID(int id);
 
     @Insert
