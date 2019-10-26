@@ -32,16 +32,16 @@ public class PeopleActivity extends AppCompatActivity {
 
         RecyclerView tesList = (RecyclerView) findViewById(R.id.peopleList);
         List<Person> dbPeople = appDb.personDao().getAll();
-        List<String> tList = new ArrayList<String>();
+        List<Integer> tList = new ArrayList<Integer>();
         for (Person p: dbPeople) {
-            tList.add(p.name);
+            tList.add(p.personID);
         }
         ListAdapter adapter = new ListAdapter(tList);
         peopleList = (RecyclerView) findViewById(R.id.peopleList);
         peopleList.setAdapter(adapter);
         peopleList.setLayoutManager(new LinearLayoutManager(this));
 
-        /*EditText selectedPerson = (EditText) findViewById(R.id.nameTextView);
+        /*EditText selectedPerson = (EditText) findViewById(R.id.);
         selectedPerson.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -49,6 +49,20 @@ public class PeopleActivity extends AppCompatActivity {
             }
 
         }); */
+
+        tesList.addOnItemTouchListener(
+                new RecyclerItemClickListener(this, tesList, new RecyclerItemClickListener.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(View itemView, int position) {
+                        startActivity(new Intent(PeopleActivity.this, MainActivity.class));
+                    }
+
+                    @Override
+                    public void onLongItemClick(View view, int position) {
+                        startActivity(new Intent(PeopleActivity.this, MainActivity.class));
+                    }
+                })
+        );
 
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
