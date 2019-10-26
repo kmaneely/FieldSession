@@ -41,25 +41,17 @@ public class PeopleActivity extends AppCompatActivity {
         peopleList.setAdapter(adapter);
         peopleList.setLayoutManager(new LinearLayoutManager(this));
 
-        /*EditText selectedPerson = (EditText) findViewById(R.id.);
-        selectedPerson.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                System.out.println("hi");
-            }
-
-        }); */
-
         tesList.addOnItemTouchListener(
                 new RecyclerItemClickListener(this, tesList, new RecyclerItemClickListener.OnItemClickListener() {
                     @Override
                     public void onItemClick(View itemView, int position) {
-                        startActivity(new Intent(PeopleActivity.this, MainActivity.class));
+                        startActivity(new Intent(PeopleActivity.this, SelectedPerson.class));
+                        finish();
                     }
 
                     @Override
                     public void onLongItemClick(View view, int position) {
-                        startActivity(new Intent(PeopleActivity.this, MainActivity.class));
+
                     }
                 })
         );

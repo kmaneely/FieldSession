@@ -10,6 +10,15 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".SelectedPerson"
+            android:label="@string/title_activity_selected_person"
+            android:parentActivityName=".PeopleActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.lifescribev01.PeopleActivity" />
+        </activity>
+        <activity
             android:name=".NewAdvice"
             android:label="New Advice"
             android:parentActivityName=".AdviceActivity"
