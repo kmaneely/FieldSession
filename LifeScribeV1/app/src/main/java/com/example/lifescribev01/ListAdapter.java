@@ -29,6 +29,12 @@ public class ListAdapter extends
 
     private OnItemClickListener listener;
 
+    private int selectedPerson = 0;
+
+    public int getItemId() {
+        return selectedPerson + 1;
+    }
+
     public interface OnItemClickListener {
         void onItemClick(View itemView, int position);
     }
@@ -95,16 +101,10 @@ public class ListAdapter extends
             names.add(p.name);
         }
         String name = names.get(position);
+        selectedPerson = position;
         // Set item views based on your views and data model
         EditText textView = viewHolder.nameTextView;
         textView.setText(name);
-
-        viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                view.getContext().startActivity(new Intent(view.getContext(), MainActivity.class));
-            }
-        }) ;
     }
 
     @Override

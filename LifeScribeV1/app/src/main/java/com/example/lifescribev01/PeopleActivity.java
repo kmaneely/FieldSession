@@ -36,7 +36,7 @@ public class PeopleActivity extends AppCompatActivity {
         for (Person p: dbPeople) {
             tList.add(p.personID);
         }
-        ListAdapter adapter = new ListAdapter(tList);
+        final ListAdapter adapter = new ListAdapter(tList);
         peopleList = (RecyclerView) findViewById(R.id.peopleList);
         peopleList.setAdapter(adapter);
         peopleList.setLayoutManager(new LinearLayoutManager(this));
@@ -45,7 +45,10 @@ public class PeopleActivity extends AppCompatActivity {
                 new RecyclerItemClickListener(this, tesList, new RecyclerItemClickListener.OnItemClickListener() {
                     @Override
                     public void onItemClick(View itemView, int position) {
-                        startActivity(new Intent(PeopleActivity.this, SelectedPerson.class));
+                        Intent i = new Intent(PeopleActivity.this, SelectedPerson.class);
+                        i.putExtra("id", position + 1);
+                        System.out.println(position);
+                        startActivity(i);
                         finish();
                     }
 

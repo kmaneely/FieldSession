@@ -26,7 +26,8 @@ public class NewPeople extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        final Person testPerson = new Person();
+
+        final Person person = new Person();
         final AppDatabase appDb = MainActivity.GetDatabase();
 
         Button fab = findViewById(R.id.submit);
@@ -41,14 +42,11 @@ public class NewPeople extends AppCompatActivity {
                 DOD = dodField.getText().toString();
                 final EditText bioField = (EditText) findViewById(R.id.bio);
                 bio = bioField.getText().toString();
-                testPerson.name = name;
-                testPerson.birthDate = DOB;
-                testPerson.deathDate = DOD;
-                testPerson.bio = bio;
-                appDb.personDao().insert(testPerson);
-
-
-
+                person.name = name;
+                person.birthDate = DOB;
+                person.deathDate = DOD;
+                person.bio = bio;
+                appDb.personDao().insert(person);
 
                 startActivity(new Intent(NewPeople.this, PeopleActivity.class));
                 finish();
