@@ -7,6 +7,7 @@ import androidx.room.*;
 public class Person {
     @NonNull
     @PrimaryKey (autoGenerate = true)
+    @ColumnInfo (name = "person_id")
     public int personID;
     @ColumnInfo (name = "name")
     public String name;

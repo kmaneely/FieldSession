@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.example.lifescribev01.database.AppDatabase;
+import com.example.lifescribev01.database.ParentXRef;
 import com.example.lifescribev01.database.Person;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
@@ -30,6 +31,7 @@ public class PeopleActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         AppDatabase appDb = MainActivity.GetDatabase();
 
+        
         RecyclerView tesList = (RecyclerView) findViewById(R.id.peopleList);
         List<Person> dbPeople = appDb.personDao().getAll();
         List<Integer> tList = new ArrayList<Integer>();
