@@ -46,6 +46,7 @@ public class NewPeople extends AppCompatActivity {
                 testPerson.deathDate = DOD;
                 testPerson.bio = bio;
                 appDb.personDao().insert(testPerson);
+                System.out.println(testPerson.personID);
 
 
 
