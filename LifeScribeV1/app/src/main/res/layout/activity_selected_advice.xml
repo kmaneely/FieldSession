@@ -4,26 +4,44 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".StoriesActivity">
+    tools:context=".SelectedAdvice">
+
+    <include layout="@layout/content_selected_advice" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="?attr/actionBarSize"
         android:orientation="vertical">
 
-        <SearchView
+        <EditText
+            android:id="@+id/title"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_marginTop="?attr/actionBarSize"
-            android:layout_weight="0.05">
+            android:layout_weight="0.1"
+            android:ems="10"
+            android:focusable="false"
+            android:hint="Title" />
 
-        </SearchView>
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/storyList"
+        <EditText
+            android:id="@+id/DOS"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="0.95" />
+            android:layout_weight="0.1"
+            android:clickable="false"
+            android:ems="10"
+            android:focusable="false"
+            android:hint="Date of Advice"
+            android:inputType="date" />
+
+        <EditText
+            android:id="@+id/text"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.6"
+            android:ems="10"
+            android:focusable="false"
+            android:hint="Story" />
 
     </LinearLayout>
 
@@ -40,15 +58,5 @@
             app:popupTheme="@style/AppTheme.PopupOverlay" />
 
     </com.google.android.material.appbar.AppBarLayout>
-
-    <include layout="@layout/content_stories" />
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="@dimen/fab_margin"
-        app:srcCompat="@android:drawable/ic_input_add" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

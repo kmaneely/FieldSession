@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 import com.example.lifescribev01.database.AppDatabase;
 import com.example.lifescribev01.database.Person;
+import com.example.lifescribev01.database.Story;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -26,27 +27,25 @@ public class NewStory extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        final Person storyDB = new Person();
+        final Story storyDB = new Story();
         final AppDatabase appDb = MainActivity.GetDatabase();
-
 
         Button submit = findViewById(R.id.submit);
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                final EditText nameField = (EditText) findViewById(R.id.name);
+                final EditText nameField = findViewById(R.id.name);
                 name = nameField.getText().toString();
-                final EditText dobField = (EditText) findViewById(R.id.date);
+                final EditText dobField = findViewById(R.id.date);
                 DOS = dobField.getText().toString();
-                final EditText dodField = (EditText) findViewById(R.id.person);
+                final EditText dodField = findViewById(R.id.person);
                 person = dodField.getText().toString();
-                final EditText bioField = (EditText) findViewById(R.id.story);
+                final EditText bioField = findViewById(R.id.story);
                 story = bioField.getText().toString();
-                storyDB.name = name;
-                storyDB.birthDate = DOS;
-                storyDB.deathDate = person;
-                storyDB.bio = story;
-                appDb.personDao().insert(storyDB);
+                storyDB.title = name;
+                storyDB.date = DOS;
+                storyDB.text = story;
+                appDb.storyDao().insert(storyDB);
 
                 startActivity(new Intent(NewStory.this, StoriesActivity.class));
                 finish();

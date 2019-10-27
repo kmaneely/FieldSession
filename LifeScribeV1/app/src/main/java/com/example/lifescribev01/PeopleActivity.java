@@ -22,34 +22,33 @@ import java.util.List;
 
 public class PeopleActivity extends AppCompatActivity {
     private RecyclerView peopleList;
-    private RecyclerView.Adapter mAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_people);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         AppDatabase appDb = MainActivity.GetDatabase();
 
         
-        RecyclerView tesList = (RecyclerView) findViewById(R.id.peopleList);
+        RecyclerView peopleView = findViewById(R.id.peopleList);
         List<Person> dbPeople = appDb.personDao().getAll();
-        List<Integer> tList = new ArrayList<Integer>();
+        List<String> tList = new ArrayList<>();
         for (Person p: dbPeople) {
-            tList.add(p.personID);
+            tList.add(p.name);
         }
         final ListAdapter adapter = new ListAdapter(tList);
-        peopleList = (RecyclerView) findViewById(R.id.peopleList);
+        peopleList = findViewById(R.id.peopleList);
         peopleList.setAdapter(adapter);
         peopleList.setLayoutManager(new LinearLayoutManager(this));
 
-        tesList.addOnItemTouchListener(
-                new RecyclerItemClickListener(this, tesList, new RecyclerItemClickListener.OnItemClickListener() {
+        peopleView.addOnItemTouchListener(
+                new RecyclerItemClickListener(this, peopleView, new RecyclerItemClickListener.OnItemClickListener() {
                     @Override
                     public void onItemClick(View itemView, int position) {
                         Intent i = new Intent(PeopleActivity.this, SelectedPerson.class);
                         i.putExtra("id", position + 1);
-                        System.out.println(position);
                         startActivity(i);
                         finish();
                     }
