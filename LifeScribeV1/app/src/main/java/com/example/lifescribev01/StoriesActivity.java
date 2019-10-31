@@ -30,7 +30,7 @@ public class StoriesActivity extends AppCompatActivity {
         AppDatabase appDb = MainActivity.GetDatabase();
 
         RecyclerView storyView = findViewById(R.id.storyList);
-        List<Story> dbStory = appDb.storyDao().getAll();
+        List<Story> dbStory = appDb.storyDao().getAllOfType(1);
         List<String> tList = new ArrayList<>();
         for (Story s: dbStory) {
             tList.add(s.title);

@@ -30,7 +30,7 @@ public class AdviceActivity extends AppCompatActivity {
         AppDatabase appDb = MainActivity.GetDatabase();
 
         RecyclerView adviceView = findViewById(R.id.adviceList);
-        List<Story> dbAdvice = appDb.storyDao().getAll();
+        List<Story> dbAdvice = appDb.storyDao().getAllOfType(2);
         List<String> tList = new ArrayList<>();
         for (Story s: dbAdvice) {
             tList.add(s.title);
