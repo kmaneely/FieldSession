@@ -29,11 +29,14 @@ public class SelectedAdvice extends AppCompatActivity {
 
         AppDatabase appDb = MainActivity.GetDatabase();
         Story s = appDb.storyDao().findByID(id);
+        Person p = appDb.personDao().findByID(s.personID);
 
         EditText titleField = findViewById(R.id.title);
         titleField.setText(s.title);
-        EditText dosField = findViewById(R.id.DOS);
-        dosField.setText(s.date);
+        EditText doaField = findViewById(R.id.DOS);
+        doaField.setText(s.date);
+        EditText personField = findViewById(R.id.person);
+        personField.setText(p.name);
         EditText storyField = findViewById(R.id.text);
         storyField.setText(s.text);
     }

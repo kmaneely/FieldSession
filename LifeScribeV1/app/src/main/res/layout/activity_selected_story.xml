@@ -35,10 +35,19 @@
             android:inputType="date" />
 
         <EditText
+            android:id="@+id/person"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.1"
+            android:ems="10"
+            android:focusable="false"
+            android:autofillHints="Person" />
+
+        <EditText
             android:id="@+id/text"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="0.6"
+            android:layout_weight="0.7"
             android:ems="10"
             android:focusable="false"
             android:hint="Story" />
