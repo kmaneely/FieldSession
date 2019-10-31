@@ -22,4 +22,6 @@
     <string name="title_activity_new_story">NewStory</string>
     <string name="title_activity_new_advice">NewAdvice</string>
     <string name="title_activity_selected_person">SelectedPerson</string>
+    <string name="title_activity_selected_story">SelectedStory</string>
+    <string name="title_activity_selected_advice">SelectedAdvice</string>
 </resources>

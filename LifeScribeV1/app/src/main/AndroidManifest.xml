@@ -2,13 +2,33 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.lifescribev01">
 
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/logo_temp"
         android:label="LifeScribe"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/logo_temp_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity
+            android:name=".SelectedAdvice"
+            android:label="@string/title_activity_selected_advice"
+            android:parentActivityName=".AdviceActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.lifescribev01.AdviceActivity" />
+        </activity>
+        <activity
+            android:name=".SelectedStory"
+            android:label="@string/title_activity_selected_story"
+            android:parentActivityName=".StoriesActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.lifescribev01.StoriesActivity" />
+        </activity>
         <activity
             android:name=".SelectedPerson"
             android:label="@string/title_activity_selected_person"

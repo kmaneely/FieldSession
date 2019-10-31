@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 import com.example.lifescribev01.database.AppDatabase;
 import com.example.lifescribev01.database.Person;
+import com.example.lifescribev01.database.Story;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -23,9 +24,10 @@ public class NewAdvice extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_advice);
         Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        final Person storyDB = new Person();
+        final Story storyDB = new Story();
         final AppDatabase appDb = MainActivity.GetDatabase();
 
 
@@ -33,19 +35,18 @@ public class NewAdvice extends AppCompatActivity {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                final EditText nameField = (EditText) findViewById(R.id.name);
+                final EditText nameField = findViewById(R.id.name);
                 name = nameField.getText().toString();
-                final EditText dobField = (EditText) findViewById(R.id.date);
+                final EditText dobField = findViewById(R.id.date);
                 DOA = dobField.getText().toString();
-                final EditText dodField = (EditText) findViewById(R.id.person);
+                final EditText dodField = findViewById(R.id.person);
                 person = dodField.getText().toString();
-                final EditText bioField = (EditText) findViewById(R.id.advice);
+                final EditText bioField = findViewById(R.id.advice);
                 advice = bioField.getText().toString();
-                storyDB.name = name;
-                storyDB.birthDate = DOA;
-                storyDB.deathDate = person;
-                storyDB.bio = advice;
-                appDb.personDao().insert(storyDB);
+                storyDB.title = name;
+                storyDB.date = DOA;
+                storyDB.text = advice;
+                appDb.storyDao().insert(storyDB);
 
                 startActivity(new Intent(NewAdvice.this, AdviceActivity.class));
                 finish();
