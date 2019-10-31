@@ -23,4 +23,7 @@ public interface StoryDao {
 
     @Delete
     void delete(Story story);
+
+    @Query("SELECT * FROM story WHERE type_id IS :type_id")
+    List<Story> getAllOfType(int type_id);
 }
