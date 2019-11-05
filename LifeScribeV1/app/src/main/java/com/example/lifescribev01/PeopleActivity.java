@@ -30,7 +30,7 @@ public class PeopleActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         AppDatabase appDb = MainActivity.GetDatabase();
-        
+
         RecyclerView peopleView = findViewById(R.id.peopleList);
         List<Person> dbPeople = appDb.personDao().getAll();
         List<String> tList = new ArrayList<>();
