@@ -18,10 +18,7 @@ import androidx.room.Ignore;
                         onDelete = ForeignKey.CASCADE)
         })
 public class SiblingXRef {
-    public SiblingXRef()
-    {
-
-    }
+    public SiblingXRef() { }
 
     public SiblingXRef(int sib_1_id, int sib_2_id)
     {

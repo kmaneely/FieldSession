@@ -4,7 +4,9 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.example.lifescribev01.database.AppDatabase;
+import com.example.lifescribev01.database.ParentXRef;
 import com.example.lifescribev01.database.Person;
+import com.example.lifescribev01.database.SiblingXRef;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -36,7 +38,7 @@ public class SelectedPerson extends AppCompatActivity {
         Bundle b = getIntent().getExtras();
         final int id = b.getInt("id");
 
-        AppDatabase appDb = MainActivity.GetDatabase();
+        final AppDatabase appDb = MainActivity.GetDatabase();
         Person p = appDb.personDao().findByID(id);
 
         EditText nameField = findViewById(R.id.name);
@@ -61,6 +63,7 @@ public class SelectedPerson extends AppCompatActivity {
             add("Parent");
             add("Child");
             add("Sibling");
+            add("Spouse");
         }};
         final Spinner relationships= findViewById(R.id.relationship);
         ArrayAdapter<String> relationshipAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, rList);
@@ -74,12 +77,25 @@ public class SelectedPerson extends AppCompatActivity {
                 final Spinner personField = findViewById(R.id.relative);
                 final Spinner relationshipField = findViewById(R.id.relationship);
                 int personID = personField.getSelectedItemPosition() + 1;
-                Pair peoplePair;
                 String rel = relationshipField.getSelectedItem().toString();
                 if(rel == "Parent"){
-                    peoplePair = new Pair(id, personID);
+                    ParentXRef pair = new ParentXRef(id, personID);
+                    appDb.parentXRefDao().insert(pair);
+                }else if(rel == "Child"){
+                    ParentXRef pair = new ParentXRef(personID, id);
+                    appDb.parentXRefDao().insert(pair);
+                }else if(rel == "Sibling"){
+                    SiblingXRef pair = new SiblingXRef(id, personID);
+                    appDb.siblingxRefDao().insert(pair);
+                    pair = new SiblingXRef(personID, id);
+                    appDb.siblingxRefDao().insert(pair);
+                }else if(rel == "Spouse"){
+                    appDb.personDao().updateSpouseID(id, personID);
+                    appDb.personDao().updateSpouseID(personID, id);
                 }
 
+                startActivity(new Intent(SelectedPerson.this, PeopleActivity.class));
+                finish();
             }
         });
     }
