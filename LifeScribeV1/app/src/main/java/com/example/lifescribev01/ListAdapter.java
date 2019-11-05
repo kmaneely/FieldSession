@@ -1,15 +1,9 @@
 package com.example.lifescribev01;
 
 import androidx.recyclerview.widget.RecyclerView;
-import android.os.Bundle;
-import androidx.appcompat.app.AppCompatActivity;
 
 
-import android.content.Intent;
-import android.util.Log;
-import android.widget.AdapterView;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.LayoutInflater;
@@ -56,7 +50,7 @@ public class ListAdapter extends
             // Stores the itemView in a public final member variable that can be used
             // to access the context from any ViewHolder instance.
             super(itemView);
-            nameTextView = (EditText) itemView.findViewById(R.id.nameTextView);
+            nameTextView = itemView.findViewById(R.id.nameTextView);
             itemView.setClickable(true);
             itemView.setOnClickListener(this);
         }
@@ -73,11 +67,11 @@ public class ListAdapter extends
     }
 
     // Store a member variable for the contacts
-    private List<Integer> pids;
+    private List<String> title;
 
     // Pass in the contact array into the constructor
-    public ListAdapter(List<Integer> tests) {
-        pids = tests;
+    public ListAdapter(List<String> tests) {
+        title = tests;
     }
 
     @Override
@@ -95,12 +89,7 @@ public class ListAdapter extends
 
     @Override
     public void onBindViewHolder(ListAdapter.ViewHolder viewHolder, int position) {
-        List<Person> dbPeople = appDb.personDao().getAll();
-        List<String> names = new ArrayList<String>();
-        for (Person p: dbPeople) {
-            names.add(p.name);
-        }
-        String name = names.get(position);
+        String name = title.get(position);
         selectedPerson = position;
         // Set item views based on your views and data model
         EditText textView = viewHolder.nameTextView;
@@ -109,6 +98,6 @@ public class ListAdapter extends
 
     @Override
     public int getItemCount() {
-        return pids.size();
+        return title.size();
     }
 }

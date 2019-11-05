@@ -62,12 +62,34 @@
             android:id="@+id/bio"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="0.6"
+            android:layout_weight="0.3"
             android:ems="10"
             android:focusable="false"
             android:inputType="textPersonName"
             android:hint="Bio" />
 
+        <Spinner
+            android:id="@+id/relative"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.1"
+            android:ems="10"
+            android:hint="Person" />
+
+        <Spinner
+            android:id="@+id/relationship"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.1"
+            android:ems="10"
+            android:hint="Person" />
+        <Button
+            android:id="@+id/submit"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.1"
+            android:text="Submit Relationship"
+            android:visibility="visible" />
     </LinearLayout>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

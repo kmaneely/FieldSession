@@ -22,17 +22,34 @@
 
     <include layout="@layout/content_family_tree" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="@dimen/fab_margin"
-        app:srcCompat="@android:drawable/ic_input_add" />
+    <RelativeLayout
+        android:id="@+id/rootRL"
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
 
-    <SearchView
-        android:layout_marginTop="?attr/actionBarSize"
-        android:layout_width="match_parent"
-        android:layout_height="30dp" />
+        <Button
+            android:id="@+id/FamilyTreePerson"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@drawable/circle_empty"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="25dp"
+            android:layout_marginBottom="25dp"
+            android:text="Name" />
+
+        <Button
+            android:id="@+id/FamilyTreePerson2"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@drawable/circle_empty"
+            android:layout_below="@+id/FamilyTreePerson"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="25dp"
+            android:layout_marginBottom="25dp"
+            android:text="Name2" />
+    </RelativeLayout>
+
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

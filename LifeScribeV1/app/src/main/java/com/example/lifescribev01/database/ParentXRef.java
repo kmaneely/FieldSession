@@ -15,6 +15,13 @@ import androidx.room.*;
                         onDelete = ForeignKey.CASCADE)
         })
 public class ParentXRef {
+    public ParentXRef() { }
+
+    public ParentXRef(int child_id, int parent_id)
+    {
+        childID = child_id;
+        parentID = parent_id;
+    }
     @ColumnInfo(name = "child_id")
     public int childID;
     @ColumnInfo(name = "parent_id")

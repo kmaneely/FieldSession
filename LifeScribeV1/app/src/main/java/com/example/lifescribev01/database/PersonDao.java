@@ -21,6 +21,9 @@ public interface PersonDao {
     @Query("SELECT * FROM person WHERE person_id IS :id")
     Person findByID(int id);
 
+    @Query("UPDATE person SET spouse_id=:new_spouse_id WHERE person_id = :id")
+    void updateSpouseID(int id, int new_spouse_id);
+
     @Insert
     void insert(Person people);
 

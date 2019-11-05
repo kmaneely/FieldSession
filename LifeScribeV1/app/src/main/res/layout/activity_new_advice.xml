@@ -44,7 +44,7 @@
             android:ems="10"
             android:hint="Date of Advice" />
 
-        <EditText
+        <Spinner
             android:id="@+id/person"
             android:layout_width="match_parent"
             android:layout_height="0dp"

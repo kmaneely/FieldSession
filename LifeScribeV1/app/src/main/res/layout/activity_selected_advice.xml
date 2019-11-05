@@ -4,7 +4,55 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".NewStory">
+    tools:context=".SelectedAdvice">
+
+    <include layout="@layout/content_selected_advice" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="?attr/actionBarSize"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.1"
+            android:ems="10"
+            android:focusable="false"
+            android:hint="Title" />
+
+        <EditText
+            android:id="@+id/DOS"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.1"
+            android:clickable="false"
+            android:ems="10"
+            android:focusable="false"
+            android:hint="Date of Advice"
+            android:inputType="date" />
+
+        <EditText
+            android:id="@+id/person"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.1"
+            android:ems="10"
+            android:focusable="false"
+            android:autofillHints="Person"/>
+
+        <EditText
+            android:id="@+id/text"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.6"
+            android:ems="10"
+            android:focusable="false"
+            android:hint="Story" />
+
+    </LinearLayout>
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
@@ -19,55 +67,5 @@
             app:popupTheme="@style/AppTheme.PopupOverlay" />
 
     </com.google.android.material.appbar.AppBarLayout>
-
-    <include layout="@layout/content_new_story" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="?attr/actionBarSize"
-        android:orientation="vertical">
-
-        <EditText
-            android:id="@+id/name"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.1"
-            android:ems="10"
-            android:hint="Name" />
-
-        <EditText
-            android:id="@+id/date"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.1"
-            android:ems="10"
-            android:hint="Date of Story" />
-
-        <Spinner
-            android:id="@+id/person"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.1"
-            android:ems="10"
-            android:hint="Person" />
-
-        <EditText
-            android:id="@+id/story"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.65"
-            android:ems="10"
-            android:hint="Story" />
-
-        <Button
-            android:id="@+id/submit"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.1"
-            android:text="Submit"
-            android:visibility="visible" />
-
-    </LinearLayout>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
