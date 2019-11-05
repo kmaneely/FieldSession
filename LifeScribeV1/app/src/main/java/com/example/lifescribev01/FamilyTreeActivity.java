@@ -21,14 +21,5 @@ public class FamilyTreeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_family_tree);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(FamilyTreeActivity.this, NewFamilyTree.class));
-            }
-        });
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 }
