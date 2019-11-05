@@ -15,6 +15,10 @@ import androidx.room.*;
                         onDelete = ForeignKey.CASCADE)
         })
 public class ParentXRef {
+    public ParentXRef()
+    {
+        
+    }
 
     public ParentXRef(int child_id, int parent_id)
     {

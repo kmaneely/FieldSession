@@ -3,6 +3,7 @@ package com.example.lifescribev01.database;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
+import androidx.room.Ignore;
 
 @Entity(tableName = "sibling_xref",
         primaryKeys = {"sibling_1_id", "sibling_2_id"},
@@ -17,6 +18,11 @@ import androidx.room.ForeignKey;
                         onDelete = ForeignKey.CASCADE)
         })
 public class SiblingXRef {
+    public SiblingXRef()
+    {
+
+    }
+
     public SiblingXRef(int sib_1_id, int sib_2_id)
     {
         sibling1ID = sib_1_id;

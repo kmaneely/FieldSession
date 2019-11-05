@@ -11,4 +11,7 @@ public interface ParentXRefDao {
 
     @Query("SELECT * FROM person INNER JOIN PARENT_XREF ON person.person_id=parent_xref.parent_id WHERE parent_xref.child_id=:childID")
     List<Person> getParentsOfPerson(int childID);
+
+    @Query("SELECT * FROM person INNER JOIN PARENT_XREF ON person.person_id=parent_xref.child_id WHERE parent_xref.parent_id=:parentID")
+    List<Person> getChildrenOfPerson(int parentID);
 }
