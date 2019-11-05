@@ -30,18 +30,7 @@ public class PeopleActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         AppDatabase appDb = MainActivity.GetDatabase();
-
-        Person person = new Person();
-        person.name = "bob";
-        appDb.personDao().insert(person);
-        System.out.println(appDb.personDao().findByID(1).name);
-        System.out.println(appDb.personDao().findByID(1).personID);
-        appDb.personDao().findByID(1).name = "Jim";
-        System.out.println(appDb.personDao().findByID(1).name);
-        System.out.println(appDb.personDao().findByID(1).personID);
-
-
-
+        
         RecyclerView peopleView = findViewById(R.id.peopleList);
         List<Person> dbPeople = appDb.personDao().getAll();
         List<String> tList = new ArrayList<>();
