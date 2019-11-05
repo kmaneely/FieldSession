@@ -17,6 +17,12 @@ import androidx.room.ForeignKey;
                         onDelete = ForeignKey.CASCADE)
         })
 public class SiblingXRef {
+    public SiblingXRef(int sib_1_id, int sib_2_id)
+    {
+        sibling1ID = sib_1_id;
+        sibling2ID = sib_2_id;
+    }
+
     @ColumnInfo(name = "sibling_1_id")
     public int sibling1ID;
     @ColumnInfo(name = "sibling_2_id")
