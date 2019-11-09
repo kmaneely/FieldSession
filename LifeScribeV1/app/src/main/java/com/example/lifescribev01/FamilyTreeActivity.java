@@ -22,6 +22,11 @@ public class FamilyTreeActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        Bundle b = getIntent().getExtras();
+        final int id = b.getInt("id");
     }
+
+
 
 }
