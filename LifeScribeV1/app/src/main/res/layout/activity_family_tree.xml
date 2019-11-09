@@ -15,7 +15,7 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
+            android:background="@drawable/banner_family_tree_v6"
             app:popupTheme="@style/AppTheme.PopupOverlay" />
 
     </com.google.android.material.appbar.AppBarLayout>
@@ -26,7 +26,8 @@
         android:id="@+id/rootRL"
         android:orientation="vertical"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent">
+        android:layout_height="fill_parent"
+        android:background="#ADA7A0">
 
         <Button
             android:id="@+id/FamilyTreePerson"
@@ -59,7 +60,7 @@
             android:layout_width="75dp"
             android:layout_height="75dp"
             android:background="@drawable/circle_empty"
-            android:layout_below="@+id/FamilyTreePerson2"
+            android:layout_below="@+id/FamilyTreePerson"
             android:layout_alignParentRight="true"
             android:layout_marginTop="50dp"
             android:layout_marginBottom="30dp"
@@ -72,7 +73,7 @@
             android:layout_width="75dp"
             android:layout_height="75dp"
             android:background="@drawable/circle_empty"
-            android:layout_below="@+id/FamilyTreePerson2"
+            android:layout_below="@+id/FamilyTreePerson"
             android:layout_toLeftOf="@+id/FamilyTreePerson3"
             android:layout_marginTop="50dp"
             android:layout_marginBottom="30dp"
@@ -125,7 +126,7 @@
             android:layout_height="75dp"
             android:background="@drawable/circle_empty"
             android:layout_alignParentLeft="true"
-            android:layout_below="@+id/FamilyTreePerson7"
+            android:layout_below="@+id/FamilyTreePerson6"
             android:layout_marginTop="50dp"
             android:layout_marginBottom="50dp"
             android:layout_marginLeft="25dp"
@@ -138,7 +139,7 @@
             android:layout_height="75dp"
             android:background="@drawable/circle_empty"
             android:layout_toRightOf="@+id/FamilyTreePerson8"
-            android:layout_below="@+id/FamilyTreePerson7"
+            android:layout_below="@+id/FamilyTreePerson6"
             android:layout_marginTop="50dp"
             android:layout_marginBottom="50dp"
             android:layout_marginLeft="10dp"
@@ -151,7 +152,7 @@
             android:layout_height="75dp"
             android:background="@drawable/circle_empty"
             android:layout_toRightOf="@+id/FamilyTreePerson9"
-            android:layout_below="@+id/FamilyTreePerson7"
+            android:layout_below="@+id/FamilyTreePerson6"
             android:layout_marginTop="50dp"
             android:layout_marginBottom="50dp"
             android:layout_marginLeft="10dp"
@@ -164,7 +165,7 @@
             android:layout_height="75dp"
             android:background="@drawable/circle_empty"
             android:layout_toRightOf="@+id/FamilyTreePerson10"
-            android:layout_below="@+id/FamilyTreePerson7"
+            android:layout_below="@+id/FamilyTreePerson6"
             android:layout_marginTop="50dp"
             android:layout_marginBottom="50dp"
             android:layout_marginLeft="10dp"

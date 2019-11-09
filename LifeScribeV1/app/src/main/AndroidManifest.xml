@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.lifescribev01">
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -12,7 +13,8 @@
         android:label="LifeScribe"
         android:roundIcon="@mipmap/logo_temp_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        tools:ignore="GoogleAppIndexingWarning">
         <activity
             android:name=".SelectedAdvice"
             android:label="@string/title_activity_selected_advice"
@@ -24,7 +26,7 @@
         </activity>
         <activity
             android:name=".SelectedStory"
-            android:label="@string/title_activity_selected_story"
+            android:label="Selected Story"
             android:parentActivityName=".StoriesActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
@@ -33,7 +35,7 @@
         </activity>
         <activity
             android:name=".SelectedPerson"
-            android:label="@string/title_activity_selected_person"
+            android:label="Selected Person"
             android:parentActivityName=".PeopleActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
@@ -105,7 +107,7 @@
         </activity>
         <activity
             android:name=".FamilyTreeActivity"
-            android:label="Family Trees"
+            android:label="Family Tree"
             android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data

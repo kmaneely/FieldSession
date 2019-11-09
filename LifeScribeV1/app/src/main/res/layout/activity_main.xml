@@ -4,33 +4,39 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    >
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_gravity="center_horizontal"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:background="#ADA7A0"
+        android:gravity="center_horizontal">
         <LinearLayout
             android:id="@+id/firstRow"
-            android:layout_centerHorizontal="true"
+
             android:layout_marginTop="100dp"
             android:rotation="-45"
             android:orientation="horizontal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
+
             <Button
-                android:layout_width="150dp"
-                android:layout_height="150dp"
                 android:id="@+id/PeopleButton"
-                android:background="@drawable/button_people_v3"
-                android:onClick="peoplePress"/>
-            <Button
+                android:layout_marginRight="25dp"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
+                android:background="@drawable/button_people_v3"
+                android:onClick="peoplePress"
+                android:adjustViewBounds="true" />
+
+            <Button
                 android:id="@+id/TreeButton"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
                 android:background="@drawable/button_family_tree_v3"
-                android:onClick="familyTreePress"/>
+                android:onClick="familyTreePress" />
         </LinearLayout>
 
         <LinearLayout
@@ -38,6 +44,7 @@
             android:layout_below="@+id/firstRow"
             android:layout_marginTop="200dp"
             android:layout_marginRight="10dp"
+            android:layout_marginEnd="10dp"
             android:rotation="-45"
             android:orientation="horizontal"
             android:layout_width="wrap_content"
@@ -45,6 +52,7 @@
             <Button
                 android:layout_width="150dp"
                 android:layout_height="150dp"
+                android:layout_marginRight="25dp"
                 android:id="@+id/AdviceButton"
                 android:background="@drawable/button_advice_v3"
                 android:onClick="advicePress"/>
@@ -59,77 +67,5 @@
         </LinearLayout>
 
     </LinearLayout>
-
-    <!--<RelativeLayout
-        android:id="@+id/rootRL"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:background="FFFFFF"
-        android:orientation="vertical"
-        tools:layout_editor_absoluteX="-160dp"
-        tools:layout_editor_absoluteY="0dp">
-
-        &lt;!&ndash;android:text="Stories" &ndash;&gt;<![CDATA[/>
-
-        ]]>&lt;!&ndash;android:text="Family Tree" &ndash;&gt;<![CDATA[/>
-
-        ]]>&lt;!&ndash;android:text="Advice" &ndash;&gt;<![CDATA[/>
-
-
-
-
-
-        ]]>
-
-        <Button
-            android:id="@+id/StoriesButton"
-            android:layout_width="155dp"
-            android:layout_height="155dp"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="78dp"
-            android:adjustViewBounds="true"
-            android:background="@drawable/button_stories_v1"
-            android:onClick="storiesPress"
-            android:visibility="visible" />
-
-        <Button
-            android:id="@+id/TreeButton"
-            android:layout_width="155dp"
-            android:layout_height="155dp"
-            android:layout_alignStart="@+id/StoriesButton"
-            android:layout_alignLeft="@+id/AdviceButton"
-            android:layout_alignBottom="@+id/StoriesButton"
-            android:layout_marginStart="40dp"
-            android:layout_marginLeft="-100dp"
-            android:layout_marginBottom="140dp"
-            android:adjustViewBounds="true"
-            android:background="@drawable/button_family_tree_v1"
-            android:onClick="familyTreePress"
-            android:visibility="visible" />
-
-        <Button
-            android:id="@+id/AdviceButton"
-            android:layout_width="155dp"
-            android:layout_height="155dp"
-            android:layout_centerVertical="true"
-            android:layout_marginStart="218dp"
-            android:layout_marginLeft="218dp"
-            android:adjustViewBounds="true"
-            android:background="@drawable/button_advice_v1"
-            android:onClick="advicePress"
-            android:visibility="visible" />
-
-        <Button
-            android:id="@+id/PeopleButton"
-            android:layout_width="155dp"
-            android:layout_height="155dp"
-            android:background="@drawable/button_people_v1"
-            android:visibility="visible"
-            android:adjustViewBounds="true"
-            android:layout_marginTop="-23dp"
-            android:layout_below="@+id/TreeButton"
-            android:layout_centerHorizontal="true"
-            android:onClick="peoplePress" />
-    </RelativeLayout>-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>
