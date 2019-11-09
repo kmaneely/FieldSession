@@ -28,6 +28,7 @@ public class NewPeople extends AppCompatActivity {
     String name, DOB, DOD, bio;
     TextView textTargetUri; //Gallery access
     ImageView targetImage; //Gallery access
+    Person testPerson;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,7 +37,7 @@ public class NewPeople extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        final Person testPerson = new Person();
+         testPerson = new Person();
         final AppDatabase appDb = MainActivity.GetDatabase();
 
         //Gallery access code
@@ -95,6 +96,7 @@ public class NewPeople extends AppCompatActivity {
             try {
                 bitmap = BitmapFactory.decodeStream(getContentResolver().openInputStream(targetUri));
                 targetImage.setImageBitmap(bitmap);
+                testPerson.imageURI = targetUri.toString();
             } catch (FileNotFoundException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
