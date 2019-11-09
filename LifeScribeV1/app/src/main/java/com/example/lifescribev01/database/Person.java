@@ -19,4 +19,6 @@ public class Person {
     public String bio;
     @ColumnInfo (name = "spouse_id")
     public int spouseID;
+    @ColumnInfo (name = "image_uri")
+    public String imageURI;
 }

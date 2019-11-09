@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         db = Room.databaseBuilder(getApplicationContext(),
-                AppDatabase.class, "people_database").allowMainThreadQueries().addMigrations(AppDatabase.MIGRATION_1_2, AppDatabase.MIGRATION_2_3).build();
+                AppDatabase.class, "people_database").allowMainThreadQueries().addMigrations(AppDatabase.MIGRATION_1_2, AppDatabase.MIGRATION_2_3, AppDatabase.MIGRATION_3_4).build();
     }
 
     // Main menu button presses to send user to other pages

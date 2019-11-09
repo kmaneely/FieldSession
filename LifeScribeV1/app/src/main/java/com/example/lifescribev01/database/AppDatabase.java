@@ -5,12 +5,13 @@ import androidx.room.RoomDatabase;
 import androidx.room.migration.Migration;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
-@Database(entities = {Person.class, ParentXRef.class,SiblingXRef.class,Story.class}, version = 3)
+@Database(entities = {Person.class, ParentXRef.class,SiblingXRef.class,Story.class, StoryRelevanceXRef.class}, version = 4)
 public abstract class AppDatabase extends RoomDatabase {
     public abstract ParentXRefDao parentXRefDao();
     public abstract SiblingXRefDao siblingxRefDao();
     public abstract PersonDao personDao();
     public abstract StoryDao storyDao();
+    public abstract StoryRelevanceXRefDao storyXRefDao();
 
     public static final Migration MIGRATION_1_2 = new Migration(1,2) {
         @Override
@@ -23,7 +24,13 @@ public abstract class AppDatabase extends RoomDatabase {
         @Override
         public void migrate(SupportSQLiteDatabase database) {
             database.execSQL( "CREATE TABLE IF NOT EXISTS `sibling_xref` (`sibling_1_id` INTEGER NOT NULL, `sibling_2_id` INTEGER NOT NULL, PRIMARY KEY(`sibling_1_id`, `sibling_2_id`), FOREIGN KEY(`sibling_1_id`) REFERENCES `Person`(`person_id`) ON UPDATE NO ACTION ON DELETE CASCADE , FOREIGN KEY(`sibling_2_id`) REFERENCES `Person`(`person_id`) ON UPDATE NO ACTION ON DELETE CASCADE )");
-            database.execSQL( "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`story_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `title` TEXT, `date` TEXT, `person_id` INTEGER NOT NULL, `text` TEXT, `type_id` INTEGER NOT NULL)");
+            database.execSQL( "CREATE TABLE IF NOT EXISTS `Story` (`story_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `title` TEXT, `date` TEXT, `person_id` INTEGER NOT NULL, `text` TEXT, `type_id` INTEGER NOT NULL)");
+        }
+    };
+    public static final Migration MIGRATION_3_4 = new Migration(3,4) {
+        @Override
+        public void migrate(SupportSQLiteDatabase database) {
+            database.execSQL( "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`person_id` INTEGER NOT NULL, `story_id` INTEGER NOT NULL, PRIMARY KEY(`person_id`, `story_id`), FOREIGN KEY(`person_id`) REFERENCES `Person`(`person_id`) ON UPDATE NO ACTION ON DELETE CASCADE , FOREIGN KEY(`story_id`) REFERENCES `Story`(`story_id`) ON UPDATE NO ACTION ON DELETE CASCADE )");
         }
     };
 }
