@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
 
     // Main menu button presses to send user to other pages
     public void familyTreePress(View view){
-        startActivity(new Intent(MainActivity.this, FamilyTreeActivity.class));
+        startActivity(new Intent(MainActivity.this, NewFamilyTree.class));
     }
     public void peoplePress(View view){
         startActivity(new Intent(MainActivity.this, PeopleActivity.class));

@@ -8,33 +8,67 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.LayoutInflater;
 import android.content.Context;
+import android.widget.Filter;
+import android.widget.Filterable;
 
 import com.example.lifescribev01.database.AppDatabase;
 import com.example.lifescribev01.database.Person;
+import com.example.lifescribev01.database.Story;
 
 import java.util.ArrayList;
 import java.util.List;
 
 // Create the basic adapter extending from RecyclerView.Adapter
 // Note that we specify the custom ViewHolder which gives us access to our views
-public class ListAdapter extends
-        RecyclerView.Adapter<ListAdapter.ViewHolder> {
+public class StoryListAdapter extends
+        RecyclerView.Adapter<StoryListAdapter.ViewHolder> implements Filterable{
     AppDatabase appDb = MainActivity.GetDatabase();
 
     private OnItemClickListener listener;
-
-    private int selectedPerson = 0;
-
-    public int getItemId() {
-        return selectedPerson + 1;
-    }
+    List<Story> filteredResults;
 
     public interface OnItemClickListener {
         void onItemClick(View itemView, int position);
     }
 
-    public void setOnItemClickListener(OnItemClickListener listener){
-        this.listener = listener;
+    @Override
+    public Filter getFilter() {
+        return new Filter() {
+            @SuppressWarnings("unchecked")
+            @Override
+            protected void publishResults(CharSequence constraint, FilterResults results) {
+                title = (List<Story>) results.values;
+                notifyDataSetChanged();
+            }
+
+            @Override
+            protected FilterResults performFiltering(CharSequence constraint) {
+                filteredResults = null;
+                if (constraint.length() == 0) {
+                    for(Story p: title){
+                        filteredResults.add(p);
+                    }
+                } else {
+                    filteredResults = getFilteredResults(constraint.toString().toLowerCase());
+                }
+
+                FilterResults results = new FilterResults();
+                results.values = filteredResults;
+
+                return results;
+            }
+        };
+    }
+
+    protected List<Story> getFilteredResults(String constraint) {
+        List<Story> results = new ArrayList<>();
+
+        for (Story item : title) {
+            if (item.title.toLowerCase().contains(constraint)) {
+                results.add(item);
+            }
+        }
+        return results;
     }
 
     // Provide a direct reference to each of the views within a data item
@@ -67,15 +101,23 @@ public class ListAdapter extends
     }
 
     // Store a member variable for the contacts
-    private List<String> title;
+    private List<Story> title;
 
     // Pass in the contact array into the constructor
-    public ListAdapter(List<String> tests) {
+    public StoryListAdapter(List<Story> tests) {
         title = tests;
     }
 
+    public List<Story> getFilterList(){
+        if(filteredResults != null) {
+            return filteredResults;
+        }else{
+            return title;
+        }
+    }
+
     @Override
-    public ListAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public StoryListAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         Context context = parent.getContext();
         LayoutInflater inflater = LayoutInflater.from(context);
 
@@ -88,16 +130,18 @@ public class ListAdapter extends
     }
 
     @Override
-    public void onBindViewHolder(ListAdapter.ViewHolder viewHolder, int position) {
-        String name = title.get(position);
-        selectedPerson = position;
+    public void onBindViewHolder(StoryListAdapter.ViewHolder viewHolder, int position) {
+        String pName = title.get(position).title;
         // Set item views based on your views and data model
         EditText textView = viewHolder.nameTextView;
-        textView.setText(name);
+        textView.setText(pName);
     }
 
     @Override
     public int getItemCount() {
+        if(title == null){
+            return 0;
+        }
         return title.size();
     }
 }
