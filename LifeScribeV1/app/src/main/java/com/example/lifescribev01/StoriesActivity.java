@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.View;
+import android.widget.SearchView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,17 +36,32 @@ public class StoriesActivity extends AppCompatActivity {
         for (Story s: dbStory) {
             tList.add(s.title);
         }
-        final ListAdapter adapter = new ListAdapter(tList);
+        final StoryListAdapter adapter = new StoryListAdapter(dbStory);
         storyList = findViewById(R.id.storyList);
         storyList.setAdapter(adapter);
         storyList.setLayoutManager(new LinearLayoutManager(this));
+
+        SearchView searchView = findViewById(R.id.search);
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String text) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String text) {
+                adapter.getFilter().filter(text);
+                return true;
+            }
+        });
 
         storyView.addOnItemTouchListener(
                 new RecyclerItemClickListener(this, storyView, new RecyclerItemClickListener.OnItemClickListener() {
                     @Override
                     public void onItemClick(View itemView, int position) {
                         Intent i = new Intent(StoriesActivity.this, SelectedStory.class);
-                        i.putExtra("id", position + 1);
+                        List<Story> filteredList = adapter.getFilterList();
+                        i.putExtra("id", filteredList.get(position).storyID);
                         startActivity(i);
                         finish();
                     }
@@ -56,7 +72,6 @@ public class StoriesActivity extends AppCompatActivity {
                     }
                 })
         );
-
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
