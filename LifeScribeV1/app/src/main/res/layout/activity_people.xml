@@ -13,6 +13,7 @@
         android:background="#ADA7A0">
 
         <SearchView
+            android:id="@+id/search"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_marginTop="?attr/actionBarSize"

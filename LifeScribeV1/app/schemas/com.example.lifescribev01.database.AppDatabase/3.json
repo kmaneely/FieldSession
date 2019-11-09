@@ -2,11 +2,11 @@
   "formatVersion": 1,
   "database": {
     "version": 3,
-    "identityHash": "ba47d0cfe06ac27c983ae155b63369da",
+    "identityHash": "92cbf625e9565f9018fb97de27c83f9c",
     "entities": [
       {
         "tableName": "Person",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`person_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `name` TEXT, `birth_date` TEXT, `death_date` TEXT, `biography` TEXT, `spouse_id` INTEGER NOT NULL)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`person_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `name` TEXT, `birth_date` TEXT, `death_date` TEXT, `biography` TEXT, `spouse_id` INTEGER NOT NULL, `image_uri` TEXT)",
         "fields": [
           {
             "fieldPath": "personID",
@@ -43,6 +43,12 @@
             "columnName": "spouse_id",
             "affinity": "INTEGER",
             "notNull": true
+          },
+          {
+            "fieldPath": "imageURI",
+            "columnName": "image_uri",
+            "affinity": "TEXT",
+            "notNull": false
           }
         ],
         "primaryKey": {
@@ -203,12 +209,62 @@
         },
         "indices": [],
         "foreignKeys": []
+      },
+      {
+        "tableName": "related_people_xref",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`person_id` INTEGER NOT NULL, `story_id` INTEGER NOT NULL, PRIMARY KEY(`person_id`, `story_id`), FOREIGN KEY(`person_id`) REFERENCES `Person`(`person_id`) ON UPDATE NO ACTION ON DELETE CASCADE , FOREIGN KEY(`story_id`) REFERENCES `Story`(`story_id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "personID",
+            "columnName": "person_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "storyID",
+            "columnName": "story_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "person_id",
+            "story_id"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": [
+          {
+            "table": "Person",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "person_id"
+            ],
+            "referencedColumns": [
+              "person_id"
+            ]
+          },
+          {
+            "table": "Story",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "story_id"
+            ],
+            "referencedColumns": [
+              "story_id"
+            ]
+          }
+        ]
       }
     ],
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'ba47d0cfe06ac27c983ae155b63369da')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '92cbf625e9565f9018fb97de27c83f9c')"
     ]
   }
 }
