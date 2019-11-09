@@ -21,5 +21,7 @@ public class FamilyTreeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_family_tree);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
+
 }
