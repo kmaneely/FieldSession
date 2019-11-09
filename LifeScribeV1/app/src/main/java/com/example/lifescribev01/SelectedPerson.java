@@ -40,7 +40,6 @@ public class SelectedPerson extends AppCompatActivity {
 
         final AppDatabase appDb = MainActivity.GetDatabase();
         Person p = appDb.personDao().findByID(id);
-
         EditText nameField = findViewById(R.id.name);
         nameField.setText(p.name);
         EditText dobField = findViewById(R.id.DOB);

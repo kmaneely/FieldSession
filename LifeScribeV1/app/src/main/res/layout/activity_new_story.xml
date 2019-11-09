@@ -15,7 +15,7 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
+            android:background="@drawable/banner_stories_v6"
             app:popupTheme="@style/AppTheme.PopupOverlay" />
 
     </com.google.android.material.appbar.AppBarLayout>
@@ -26,7 +26,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="?attr/actionBarSize"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:background="#ADA7A0">
 
         <EditText
             android:id="@+id/name"
@@ -59,14 +60,41 @@
             android:layout_weight="0.65"
             android:ems="10"
             android:hint="Story" />
-
+        <LinearLayout
+            android:layout_height="0dp"
+            android:layout_weight=".08"
+            android:layout_width="match_parent"
+            android:orientation="horizontal">
+            <Button
+                android:id="@+id/record"
+                android:layout_height="match_parent"
+                android:layout_width="0dp"
+                android:layout_weight=".33"
+                android:text="Record"
+                android:visibility="visible"/>
+            <Button
+                android:id="@+id/stop"
+                android:layout_height="match_parent"
+                android:layout_width="0dp"
+                android:layout_weight=".33"
+                android:text="Stop"
+                android:visibility="visible"/>
+            <Button
+                android:id="@+id/play"
+                android:layout_height="match_parent"
+                android:layout_width="0dp"
+                android:layout_weight=".33"
+                android:text="Play"
+                android:visibility="visible"/>
+        </LinearLayout>
         <Button
             android:id="@+id/submit"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="0.1"
             android:text="Submit"
-            android:visibility="visible" />
+            android:visibility="visible"
+            android:background="@drawable/banner_stories_v6"/>
 
     </LinearLayout>
 

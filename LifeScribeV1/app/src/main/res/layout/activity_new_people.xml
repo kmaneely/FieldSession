@@ -15,7 +15,7 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
+            android:background="@drawable/banner_people_v6"
             app:popupTheme="@style/AppTheme.PopupOverlay" />
 
     </com.google.android.material.appbar.AppBarLayout>
@@ -26,14 +26,16 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="?attr/actionBarSize"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:background="#ADA7A0">
         <Button
             android:id="@+id/loadimage"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="0.1"
             android:ems="10"
-            android:text="Load Image" />
+            android:text="Load Image"
+            android:background="#5A7943"/>
 
         <TextView
             android:id="@+id/targeturi"
@@ -95,7 +97,8 @@
             android:layout_height="0dp"
             android:layout_weight="0.1"
             android:text="Submit"
-            android:visibility="visible" />
+            android:visibility="visible"
+            android:background="@drawable/banner_people_v6"/>
 
     </LinearLayout>
 
