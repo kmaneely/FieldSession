@@ -57,19 +57,19 @@ public class FamilyTreeActivity extends AppCompatActivity {
         else{
             Spouse.setVisibility(View.GONE);;
         }
-        if(targetParents.get(0)!=null){
+        if(targetParents.size()>=1 && targetParents.get(0)!=null){
             Parent1.setText(targetParents.get(0).name);
         }
         else{
             Parent1.setVisibility(View.GONE);;
         }
-        if(targetSiblings.size()==2 && targetParents.get(1)!=null){
+        if(targetParents.size()==2 && targetParents.get(1)!=null){
             Parent2.setText(targetParents.get(1).name);
         }
         else{
             Parent2.setVisibility(View.GONE);;
         }
-        if(targetSiblings.get(0)!=null){
+        if(targetSiblings.size()>=1 && targetSiblings.get(0)!=null){
             Sibling1.setText(targetSiblings.get(0).name);
         }
         else{
@@ -87,7 +87,7 @@ public class FamilyTreeActivity extends AppCompatActivity {
         else{
             Sibling3.setVisibility(View.GONE);;
         }
-        if(targetChildren.get(0)!=null){
+        if(targetSiblings.size()>=1 && targetChildren.get(0)!=null){
             Child1.setText(targetChildren.get(0).name);
         }
         else{

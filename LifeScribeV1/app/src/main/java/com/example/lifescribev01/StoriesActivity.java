@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.View;
+import android.widget.Button;
 import android.widget.SearchView;
 
 import java.util.ArrayList;
@@ -53,6 +54,8 @@ public class StoriesActivity extends AppCompatActivity {
                 adapter.getFilter().filter(text);
                 return true;
             }
+
+
         });
 
         storyView.addOnItemTouchListener(

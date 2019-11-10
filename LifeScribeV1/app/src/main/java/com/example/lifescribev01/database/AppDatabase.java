@@ -5,7 +5,7 @@ import androidx.room.RoomDatabase;
 import androidx.room.migration.Migration;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
-@Database(entities = {Person.class, ParentXRef.class,SiblingXRef.class,Story.class, StoryRelevanceXRef.class}, version = 4)
+@Database(entities = {Person.class, ParentXRef.class,SiblingXRef.class,Story.class, StoryRelevanceXRef.class}, version = 5)
 public abstract class AppDatabase extends RoomDatabase {
     public abstract ParentXRefDao parentXRefDao();
     public abstract SiblingXRefDao siblingxRefDao();
@@ -30,8 +30,14 @@ public abstract class AppDatabase extends RoomDatabase {
     public static final Migration MIGRATION_3_4 = new Migration(3,4) {
         @Override
         public void migrate(SupportSQLiteDatabase database) {
-            database.execSQL( "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`person_id` INTEGER NOT NULL, `story_id` INTEGER NOT NULL, PRIMARY KEY(`person_id`, `story_id`), FOREIGN KEY(`person_id`) REFERENCES `Person`(`person_id`) ON UPDATE NO ACTION ON DELETE CASCADE , FOREIGN KEY(`story_id`) REFERENCES `Story`(`story_id`) ON UPDATE NO ACTION ON DELETE CASCADE )");
+            database.execSQL( "CREATE TABLE IF NOT EXISTS `related_people_xref` (`person_id` INTEGER NOT NULL, `story_id` INTEGER NOT NULL, PRIMARY KEY(`person_id`, `story_id`), FOREIGN KEY(`person_id`) REFERENCES `Person`(`person_id`) ON UPDATE NO ACTION ON DELETE CASCADE , FOREIGN KEY(`story_id`) REFERENCES `Story`(`story_id`) ON UPDATE NO ACTION ON DELETE CASCADE )");
             database.execSQL( "ALTER TABLE person ADD COLUMN image_uri TEXT");
+        }
+    };
+    public static final Migration MIGRATION_4_5 = new Migration(4,5) {
+        @Override
+        public void migrate(SupportSQLiteDatabase database) {
+            database.execSQL( "ALTER TABLE story ADD COLUMN audio_file_path TEXT");
         }
     };
 }
