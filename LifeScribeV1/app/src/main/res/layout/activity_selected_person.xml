@@ -15,7 +15,7 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
+            android:background="@drawable/banner_people_v6"
             app:popupTheme="@style/AppTheme.PopupOverlay" />
 
     </com.google.android.material.appbar.AppBarLayout>
@@ -90,7 +90,8 @@
             android:layout_height="0dp"
             android:layout_weight="0.1"
             android:text="Submit Relationship"
-            android:visibility="visible" />
+            android:visibility="visible"
+            android:background="@drawable/banner_people_v6"/>
     </LinearLayout>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
