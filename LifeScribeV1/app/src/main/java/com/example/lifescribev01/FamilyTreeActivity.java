@@ -16,7 +16,6 @@ import android.widget.Button;
 import java.util.List;
 
 public class FamilyTreeActivity extends AppCompatActivity {
-    DrawView drawView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,10 +25,6 @@ public class FamilyTreeActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         final AppDatabase appDb = MainActivity.GetDatabase();
-
-        drawView = new DrawView(this);
-        setContentView(drawView);
-
 
         Bundle b = getIntent().getExtras();
         final int id = b.getInt("id");
