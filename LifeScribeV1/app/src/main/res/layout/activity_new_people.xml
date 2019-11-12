@@ -16,7 +16,9 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="@drawable/banner_people_v6"
-            app:popupTheme="@style/AppTheme.PopupOverlay" />
+            app:popupTheme="@style/AppTheme.PopupOverlay"
+            app:navigationIcon="?attr/homeAsUpIndicator"
+            app:title="New Person"/>
 
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -35,7 +37,7 @@
             android:layout_weight="0.1"
             android:ems="10"
             android:text="Load Image"
-            android:background="#5A7943"/>
+            android:background="@color/colorPrimary"/>
 
         <TextView
             android:id="@+id/targeturi"
@@ -50,7 +52,7 @@
             android:layout_weight="0.1"
             android:layout_gravity="center"
             android:ems="10"
-            android:src="@drawable/question_mark_jpg"
+            android:src="@drawable/question_mark_v2"
             android:padding="7dp"
             android:scaleType="centerCrop"
             />

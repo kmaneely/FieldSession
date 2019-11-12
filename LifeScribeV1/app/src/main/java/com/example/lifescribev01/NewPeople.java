@@ -37,6 +37,9 @@ public class NewPeople extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+
+
+
          testPerson = new Person();
         final AppDatabase appDb = MainActivity.GetDatabase();
 

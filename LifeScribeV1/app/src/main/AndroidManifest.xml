@@ -17,7 +17,7 @@
         tools:ignore="GoogleAppIndexingWarning">
         <activity
             android:name=".SelectedAdvice"
-            android:label="@string/title_activity_selected_advice"
+            android:label="Selected Advice"
             android:parentActivityName=".AdviceActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
