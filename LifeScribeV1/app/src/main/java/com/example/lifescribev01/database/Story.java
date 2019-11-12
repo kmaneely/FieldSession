@@ -26,4 +26,7 @@ public class Story {
 
     @ColumnInfo (name = "type_id")
     public int typeID;
+
+    @ColumnInfo (name = "audio_file_path")
+    public String audioPathID;
 }

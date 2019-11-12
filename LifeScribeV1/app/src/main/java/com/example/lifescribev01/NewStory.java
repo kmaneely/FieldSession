@@ -129,6 +129,7 @@ public class NewStory extends AppCompatActivity {
                 storyDB.personID = personID;
                 storyDB.text = story;
                 storyDB.typeID = 1;
+                storyDB.audioPathID = outputFile;
                 appDb.storyDao().insert(storyDB);
 
                 startActivity(new Intent(NewStory.this, StoriesActivity.class));
