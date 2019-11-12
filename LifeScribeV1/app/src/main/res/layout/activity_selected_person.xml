@@ -34,30 +34,48 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="0.1"
+            android:layout_gravity="left"
             android:ems="10"
             android:focusable="false"
             android:hint="Name" />
 
-        <EditText
-            android:id="@+id/DOB"
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="0.1"
-            android:clickable="false"
-            android:ems="10"
-            android:focusable="false"
-            android:hint="Date of Birth"
-            android:inputType="date" />
+            android:layout_weight="0.2"
+            android:weightSum="100">
 
-        <EditText
-            android:id="@+id/DOD"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="0.1"
-            android:ems="10"
-            android:inputType="date"
-            android:focusable="false"
-            android:hint="Date of Death" />
+            <ImageView
+                android:id="@+id/personImage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/DOB"
+                app:srcCompat="@drawable/logo_temp" />
+
+            <EditText
+                android:id="@+id/DOB"
+                android:layout_width="wrap_content"
+                android:layout_height="75dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_gravity="left"
+                android:clickable="false"
+                android:ems="10"
+                android:focusable="false"
+                android:hint="Date of Birth"
+                android:inputType="date" />
+
+            <EditText
+                android:id="@+id/DOD"
+                android:layout_width="wrap_content"
+                android:layout_height="75dp"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@id/DOB"
+                android:ems="10"
+                android:focusable="false"
+                android:hint="Date of Death"
+                android:inputType="date" />
+        </RelativeLayout>
 
         <EditText
             android:id="@+id/bio"
