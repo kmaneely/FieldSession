@@ -18,6 +18,9 @@ public interface StoryDao {
     @Query("SELECT * FROM story WHERE story_id IS :id")
     Story findByID(int id);
 
+    @Query("SELECT * FROM story WHERE person_id IS :person_id")
+    List<Story> getAllOfPerson(int person_id);
+
     @Insert
     void insert(Story story);
 
