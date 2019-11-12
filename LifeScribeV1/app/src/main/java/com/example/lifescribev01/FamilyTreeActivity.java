@@ -1,12 +1,11 @@
 package com.example.lifescribev01;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 
 import com.example.lifescribev01.database.AppDatabase;
 import com.example.lifescribev01.database.Person;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -14,11 +13,10 @@ import androidx.appcompat.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 
-import com.example.lifescribev01.R;
-
 import java.util.List;
 
 public class FamilyTreeActivity extends AppCompatActivity {
+    DrawView drawView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +26,9 @@ public class FamilyTreeActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         final AppDatabase appDb = MainActivity.GetDatabase();
+
+        drawView = new DrawView(this);
+        setContentView(drawView);
 
 
         Bundle b = getIntent().getExtras();
