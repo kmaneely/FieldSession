@@ -1,6 +1,9 @@
 package com.example.lifescribev01;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
 
 import com.example.lifescribev01.database.AppDatabase;
@@ -19,9 +22,12 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import java.io.FileNotFoundException;
+import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -46,6 +52,22 @@ public class SelectedPerson extends AppCompatActivity {
         dobField.setText(p.birthDate);
         EditText dodField = findViewById(R.id.DOD);
         dodField.setText(p.deathDate);
+        ImageView image = findViewById(R.id.personImage);
+
+
+        if(appDb.personDao().findByID(id).imageURI != null){
+            Uri targetUri = Uri.parse(appDb.personDao().findByID(id).imageURI);
+            Bitmap bitmap;
+            try {
+                bitmap = BitmapFactory.decodeStream(getContentResolver().openInputStream(targetUri));
+                image.setImageBitmap(bitmap);
+            } catch (FileNotFoundException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+        }else{
+            //default image
+        }
         EditText bioField = findViewById(R.id.bio);
         bioField.setText(p.bio);
 

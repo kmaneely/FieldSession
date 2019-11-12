@@ -55,6 +55,31 @@
             android:layout_marginRight="25dp"
             android:text="Name2" />
 
+        <View
+            android:id="@+id/parent_line"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_toRightOf="@id/FamilyTreePerson"
+            android:layout_toLeftOf="@id/FamilyTreePerson2"
+            android:layout_alignBottom="@id/FamilyTreePerson"
+            android:background="#c0c0c0"/>
+
+        <View
+            android:id="@+id/parent_sibling_down"
+            android:layout_width="2dp"
+            android:layout_height="match_parent"
+            android:layout_below="@id/parent_line"
+            android:layout_above="@id/FamilyTreePerson4"
+            android:layout_centerHorizontal="true"
+            android:background="#c0c0c0"/>
+
+        <View
+            android:id="@+id/parent_sibling_across"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_below="@id/parent_sibling_down"
+            android:background="#c0c0c0"/>
+
         <Button
             android:id="@+id/FamilyTreePerson3"
             android:layout_width="75dp"
@@ -119,6 +144,14 @@
             android:layout_marginLeft="15dp"
             android:layout_marginRight="25dp"
             android:text="Name7" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_toRightOf="@id/FamilyTreePerson6"
+            android:layout_toLeftOf="@id/FamilyTreePerson7"
+            android:layout_alignBottom="@id/FamilyTreePerson6"
+            android:background="#c0c0c0"/>
 
         <Button
             android:id="@+id/FamilyTreePerson8"
