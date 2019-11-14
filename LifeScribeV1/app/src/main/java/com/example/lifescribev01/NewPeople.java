@@ -8,13 +8,10 @@ import android.os.Bundle;
 
 import com.example.lifescribev01.database.AppDatabase;
 import com.example.lifescribev01.database.Person;
-import com.example.lifescribev01.database.Person;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
+
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.room.*;
 
 import android.view.View;
 import android.widget.Button;
@@ -45,17 +42,19 @@ public class NewPeople extends AppCompatActivity {
 
         //Gallery access code
         setContentView(R.layout.activity_new_people);
-        Button buttonLoadImage = (Button)findViewById(R.id.loadimage);
-        textTargetUri = (TextView)findViewById(R.id.targeturi);
-        targetImage = (ImageView)findViewById(R.id.targetimage);
+        Button buttonLoadImage = findViewById(R.id.loadimage);
+        textTargetUri = findViewById(R.id.targeturi);
+        targetImage = findViewById(R.id.targetimage);
 
         buttonLoadImage.setOnClickListener(new Button.OnClickListener(){
 
             @Override
             public void onClick(View arg0) {
                 // TODO Auto-generated method stub
-                Intent intent = new Intent(Intent.ACTION_PICK,
-                        android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                String[] types = {"image/jpeg", "image/png"};
+                Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
+                        .setType("image/*")
+                        .putExtra(Intent.EXTRA_MIME_TYPES, types);
                 startActivityForResult(intent, 0);
             }});
         //Gallery access code
