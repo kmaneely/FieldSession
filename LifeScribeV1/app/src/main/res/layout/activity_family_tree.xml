@@ -37,7 +37,7 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
             android:layout_marginTop="100dp"
-            android:layout_marginBottom="30dp"
+            android:layout_marginBottom="80dp"
             android:layout_marginLeft="25dp"
             android:layout_marginRight="15dp"
             android:text="Name" />
@@ -50,7 +50,7 @@
             android:layout_alignParentRight="true"
             android:layout_alignParentTop="true"
             android:layout_marginTop="100dp"
-            android:layout_marginBottom="30dp"
+            android:layout_marginBottom="80dp"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="25dp"
             android:text="Name2" />
@@ -67,9 +67,8 @@
         <View
             android:id="@+id/parent_sibling_down"
             android:layout_width="2dp"
-            android:layout_height="match_parent"
+            android:layout_height="40dp"
             android:layout_below="@id/parent_line"
-            android:layout_above="@id/FamilyTreePerson4"
             android:layout_centerHorizontal="true"
             android:background="#c0c0c0"/>
 
@@ -78,6 +77,8 @@
             android:layout_width="match_parent"
             android:layout_height="2dp"
             android:layout_below="@id/parent_sibling_down"
+            android:layout_marginLeft="70dp"
+            android:layout_marginRight="70dp"
             android:background="#c0c0c0"/>
 
         <Button
@@ -87,11 +88,19 @@
             android:background="@drawable/circle_empty"
             android:layout_below="@+id/FamilyTreePerson"
             android:layout_alignParentRight="true"
-            android:layout_marginTop="50dp"
-            android:layout_marginBottom="30dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginBottom="80dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="25dp"
             android:text="Name3" />
+
+        <View
+            android:id="@+id/parent_sibling_1"
+            android:layout_width="2dp"
+            android:layout_height="40dp"
+            android:layout_below="@id/parent_sibling_across"
+            android:layout_toLeftOf="@id/FamilyTreePerson3"
+            android:background="#c0c0c0"/>
 
         <Button
             android:id="@+id/FamilyTreePerson4"
@@ -100,11 +109,20 @@
             android:background="@drawable/circle_empty"
             android:layout_below="@+id/FamilyTreePerson"
             android:layout_toLeftOf="@+id/FamilyTreePerson3"
-            android:layout_marginTop="50dp"
-            android:layout_marginBottom="30dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginBottom="80dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:text="Name4" />
+
+        <View
+            android:id="@+id/parent_sibling_2"
+            android:layout_width="2dp"
+            android:layout_height="match_parent"
+            android:layout_below="@id/parent_line"
+            android:layout_above="@id/FamilyTreePerson4"
+            android:layout_centerHorizontal="true"
+            android:background="#c0c0c0"/>
 
         <Button
             android:id="@+id/FamilyTreePerson5"
@@ -113,11 +131,20 @@
             android:background="@drawable/circle_empty"
             android:layout_below="@+id/FamilyTreePerson2"
             android:layout_toLeftOf="@+id/FamilyTreePerson4"
-            android:layout_marginTop="50dp"
-            android:layout_marginBottom="30dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginBottom="80dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:text="Name5" />
+
+        <View
+            android:id="@+id/parent_sibling_3"
+            android:layout_width="2dp"
+            android:layout_height="match_parent"
+            android:layout_below="@id/parent_line"
+            android:layout_above="@id/FamilyTreePerson4"
+            android:layout_centerHorizontal="true"
+            android:background="#c0c0c0"/>
 
         <Button
             android:id="@+id/FamilyTreePerson6"
@@ -126,11 +153,20 @@
             android:background="@drawable/circle_empty"
             android:layout_alignParentLeft="true"
             android:layout_below="@+id/FamilyTreePerson5"
-            android:layout_marginTop="50dp"
-            android:layout_marginBottom="30dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginBottom="80dp"
             android:layout_marginLeft="25dp"
             android:layout_marginRight="15dp"
             android:text="Name6" />
+
+        <View
+            android:id="@+id/parent_self"
+            android:layout_width="2dp"
+            android:layout_height="match_parent"
+            android:layout_below="@id/parent_sibling_across"
+            android:layout_above="@id/FamilyTreePerson6"
+            android:layout_alignLeft="@id/parent_sibling_across"
+            android:background="#c0c0c0"/>
 
         <Button
             android:id="@+id/FamilyTreePerson7"
@@ -139,8 +175,8 @@
             android:background="@drawable/circle_empty"
             android:layout_alignParentRight="true"
             android:layout_below="@+id/FamilyTreePerson5"
-            android:layout_marginTop="50dp"
-            android:layout_marginBottom="30dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginBottom="80dp"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="25dp"
             android:text="Name7" />
@@ -160,7 +196,7 @@
             android:background="@drawable/circle_empty"
             android:layout_alignParentLeft="true"
             android:layout_below="@+id/FamilyTreePerson6"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="0dp"
             android:layout_marginBottom="50dp"
             android:layout_marginLeft="25dp"
             android:layout_marginRight="10dp"
@@ -173,7 +209,7 @@
             android:background="@drawable/circle_empty"
             android:layout_toRightOf="@+id/FamilyTreePerson8"
             android:layout_below="@+id/FamilyTreePerson6"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="0dp"
             android:layout_marginBottom="50dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
@@ -186,7 +222,7 @@
             android:background="@drawable/circle_empty"
             android:layout_toRightOf="@+id/FamilyTreePerson9"
             android:layout_below="@+id/FamilyTreePerson6"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="0dp"
             android:layout_marginBottom="50dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
@@ -199,7 +235,7 @@
             android:background="@drawable/circle_empty"
             android:layout_toRightOf="@+id/FamilyTreePerson10"
             android:layout_below="@+id/FamilyTreePerson6"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="0dp"
             android:layout_marginBottom="50dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="25dp"
