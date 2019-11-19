@@ -11,7 +11,7 @@
         android:allowBackup="true"
         android:icon="@mipmap/logo_temp"
         android:label="Loregen"
-        android:roundIcon="@mipmap/logo_temp_round"
+        android:roundIcon="@mipmap/logo_temp"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
