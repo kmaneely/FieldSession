@@ -60,21 +60,13 @@ public class NewStory extends AppCompatActivity {
         stop.setEnabled(false);
         play.setEnabled(false);
 
-        outputFile = Environment.getExternalStorageDirectory().getAbsolutePath() + "/recording.3gp";
+        outputFile = getExternalCacheDir().getAbsolutePath() + "/recording2.3gp";
 
         myAudioRecorder = new MediaRecorder();
         myAudioRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
         myAudioRecorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
         myAudioRecorder.setAudioEncoder(MediaRecorder.OutputFormat.AMR_NB);
         myAudioRecorder.setOutputFile(outputFile);
-
-        destroy.setOnClickListener(new View.OnClickListener() {
-                                       @Override
-                                       public void onClick(View v) {
-                                           appDb.clearAllTables();
-                                       }
-                                   }
-        );
 
         record.setOnClickListener(new View.OnClickListener() {
             @Override
