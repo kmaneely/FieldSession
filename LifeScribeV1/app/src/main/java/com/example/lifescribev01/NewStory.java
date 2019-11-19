@@ -58,6 +58,7 @@ public class NewStory extends AppCompatActivity {
 
         //recorder
 
+        int storyCounter = appDb.storyDao().getNumberOfStories();
         record = findViewById(R.id.record);
         stop = findViewById(R.id.stop);
         play = findViewById(R.id.play);
@@ -67,13 +68,13 @@ public class NewStory extends AppCompatActivity {
 
         myAudioRecorder = new MediaRecorder();
 
-        outputFile = Environment.getExternalStorageDirectory().getAbsolutePath() + "/recording.3gp";
+        outputFile = getExternalCacheDir().getAbsolutePath() + "/recording" + Integer.toString(storyCounter) + ".3gp";
 
         myAudioRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
         myAudioRecorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
         myAudioRecorder.setAudioEncoder(MediaRecorder.OutputFormat.AMR_NB);
         myAudioRecorder.setOutputFile(outputFile);
-        
+
 
 
         record.setOnClickListener(new View.OnClickListener() {
