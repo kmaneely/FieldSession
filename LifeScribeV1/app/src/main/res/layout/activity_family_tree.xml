@@ -38,8 +38,7 @@
             android:layout_marginTop="100dp"
             android:layout_marginBottom="80dp"
             android:layout_marginLeft="25dp"
-            android:layout_marginRight="25dp"
-            android:orientation="horizontal">
+            android:layout_marginRight="25dp">
 
             <Button
                 android:id="@+id/FamilyTreePerson"
@@ -163,8 +162,7 @@
             android:layout_below="@+id/sibling_box"
             android:layout_marginBottom="80dp"
             android:layout_marginLeft="25dp"
-            android:layout_marginRight="25dp"
-            android:orientation="horizontal">
+            android:layout_marginRight="25dp">
 
             <Button
                 android:id="@+id/FamilyTreePerson6"
@@ -209,8 +207,7 @@
             android:layout_below="@+id/spouse_box"
             android:layout_marginBottom="80dp"
             android:layout_marginLeft="25dp"
-            android:layout_marginRight="25dp"
-            android:orientation="horizontal">
+            android:layout_marginRight="25dp">
 
             <Button
                 android:id="@+id/FamilyTreePerson8"
@@ -248,7 +245,6 @@
                 android:background="@drawable/circle_empty"
                 android:layout_toRightOf="@+id/FamilyTreePerson10"
                 android:layout_marginLeft="10dp"
-                android:layout_marginRight="25dp"
                 android:text="Name11" />
 
         </RelativeLayout>

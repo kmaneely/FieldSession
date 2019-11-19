@@ -1,6 +1,8 @@
 package com.example.lifescribev01;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.media.MediaRecorder;
 import android.media.MediaPlayer;
 import android.os.Bundle;
@@ -14,6 +16,8 @@ import com.google.android.material.snackbar.Snackbar;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -27,7 +31,7 @@ import java.util.List;
 
 public class NewStory extends AppCompatActivity {
     String name, DOS, person, story;
-    Button play, record, stop, destroy;
+    Button play, record, stop;
     private MediaRecorder myAudioRecorder;
     String outputFile;
 
@@ -60,26 +64,21 @@ public class NewStory extends AppCompatActivity {
         stop.setEnabled(false);
         play.setEnabled(false);
 
+        myAudioRecorder = new MediaRecorder();
+
         outputFile = Environment.getExternalStorageDirectory().getAbsolutePath() + "/recording.3gp";
 
-        myAudioRecorder = new MediaRecorder();
         myAudioRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
         myAudioRecorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
         myAudioRecorder.setAudioEncoder(MediaRecorder.OutputFormat.AMR_NB);
         myAudioRecorder.setOutputFile(outputFile);
 
-        destroy.setOnClickListener(new View.OnClickListener() {
-                                       @Override
-                                       public void onClick(View v) {
-                                           appDb.clearAllTables();
-                                       }
-                                   }
-        );
 
         record.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 try {
+
                     myAudioRecorder.prepare();
                     myAudioRecorder.start();
                 } catch (IllegalStateException ise) {
