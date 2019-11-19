@@ -32,16 +32,12 @@ public class NewPeople extends AppCompatActivity {
         setContentView(R.layout.activity_new_people);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-
 
 
          testPerson = new Person();
         final AppDatabase appDb = MainActivity.GetDatabase();
 
         //Gallery access code
-        setContentView(R.layout.activity_new_people);
         Button buttonLoadImage = findViewById(R.id.loadimage);
         textTargetUri = findViewById(R.id.targeturi);
         targetImage = findViewById(R.id.targetimage);
@@ -104,6 +100,7 @@ public class NewPeople extends AppCompatActivity {
                 e.printStackTrace();
             }
         }
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
     //Gallery access code
 }

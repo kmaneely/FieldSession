@@ -31,7 +31,7 @@ import java.util.List;
 
 public class NewStory extends AppCompatActivity {
     String name, DOS, person, story;
-    Button play, record, stop;
+    Button play, record, stop, destroy;
     private MediaRecorder myAudioRecorder;
     String outputFile;
 
@@ -61,6 +61,8 @@ public class NewStory extends AppCompatActivity {
         record = findViewById(R.id.record);
         stop = findViewById(R.id.stop);
         play = findViewById(R.id.play);
+        destroy = findViewById(R.id.destroy);
+
         stop.setEnabled(false);
         play.setEnabled(false);
 
@@ -72,6 +74,14 @@ public class NewStory extends AppCompatActivity {
         myAudioRecorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
         myAudioRecorder.setAudioEncoder(MediaRecorder.OutputFormat.AMR_NB);
         myAudioRecorder.setOutputFile(outputFile);
+
+        destroy.setOnClickListener(new View.OnClickListener() {
+                                       @Override
+                                       public void onClick(View v) {
+                                           appDb.clearAllTables();
+                                       }
+                                   }
+        );
 
 
         record.setOnClickListener(new View.OnClickListener() {
@@ -95,8 +105,8 @@ public class NewStory extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 myAudioRecorder.stop();
-                myAudioRecorder.release();
-                myAudioRecorder = null;
+                /*myAudioRecorder.release();
+                myAudioRecorder = null;*/
                 record.setEnabled(true);
                 stop.setEnabled(false);
                 play.setEnabled(true);

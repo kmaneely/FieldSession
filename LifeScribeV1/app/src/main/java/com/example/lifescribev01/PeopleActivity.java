@@ -27,6 +27,10 @@ public class PeopleActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+
+
+
         AppDatabase appDb = MainActivity.GetDatabase();
 
         RecyclerView peopleView = findViewById(R.id.peopleList);
@@ -77,7 +81,7 @@ public class PeopleActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(PeopleActivity.this, NewPeople.class));
-                finish();
+
             }
         });
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
