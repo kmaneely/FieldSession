@@ -31,6 +31,7 @@ public class StoriesActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         AppDatabase appDb = MainActivity.GetDatabase();
 
+
         RecyclerView storyView = findViewById(R.id.storyList);
         List<Story> dbStory = appDb.storyDao().getAllOfType(1);
         List<String> tList = new ArrayList<>();
