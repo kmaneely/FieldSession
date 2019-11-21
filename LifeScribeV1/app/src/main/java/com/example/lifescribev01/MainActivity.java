@@ -35,22 +35,30 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
-            
+       //record.setEnabled(true);
+        //stop.setEnabled(false);
+        //play.setEnabled(true);
 
     }
 
     // Main menu button presses to send user to other pages
     public void familyTreePress(View view){
-        startActivity(new Intent(MainActivity.this, NewFamilyTree.class));
+        if(db.personDao().getNumberOfPeople() > 0) {
+            startActivity(new Intent(MainActivity.this, NewFamilyTree.class));
+        }
     }
     public void peoplePress(View view){
-        startActivity(new Intent(MainActivity.this, PeopleActivity.class));
+            startActivity(new Intent(MainActivity.this, PeopleActivity.class));
     }
     public void storiesPress(View view){
-        startActivity(new Intent(MainActivity.this, StoriesActivity.class));
+        if(db.personDao().getNumberOfPeople() > 0) {
+            startActivity(new Intent(MainActivity.this, StoriesActivity.class));
+        }
     }
     public void advicePress(View view){
-        startActivity(new Intent(MainActivity.this, AdviceActivity.class));
+        if(db.personDao().getNumberOfPeople() > 0) {
+            startActivity(new Intent(MainActivity.this, AdviceActivity.class));
+        }
     }
 
     public static AppDatabase GetDatabase()
