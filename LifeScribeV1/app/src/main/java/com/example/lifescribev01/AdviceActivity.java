@@ -6,7 +6,6 @@ import android.os.Bundle;
 import com.example.lifescribev01.database.AppDatabase;
 import com.example.lifescribev01.database.Story;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -28,19 +27,18 @@ public class AdviceActivity extends AppCompatActivity {
         setContentView(R.layout.activity_advice);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        //Calls the database so info can be pulled from it
         AppDatabase appDb = MainActivity.GetDatabase();
 
+        //Creates the RecyclerView with all of the saved advice
         RecyclerView adviceView = findViewById(R.id.adviceList);
         List<Story> dbAdvice = appDb.storyDao().getAllOfType(2);
-        List<String> tList = new ArrayList<>();
-        for (Story s: dbAdvice) {
-            tList.add(s.title);
-        }
         final StoryListAdapter adapter = new StoryListAdapter(dbAdvice);
         adviceList = findViewById(R.id.adviceList);
         adviceList.setAdapter(adapter);
         adviceList.setLayoutManager(new LinearLayoutManager(this));
 
+        //Creates the search bar with search functionality by name
         SearchView searchView = findViewById(R.id.search);
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
@@ -55,6 +53,7 @@ public class AdviceActivity extends AppCompatActivity {
             }
         });
 
+        //On click listener for the RecyclerView
         adviceView.addOnItemTouchListener(
                 new RecyclerItemClickListener(this, adviceView, new RecyclerItemClickListener.OnItemClickListener() {
                     @Override
@@ -73,6 +72,7 @@ public class AdviceActivity extends AppCompatActivity {
                 })
         );
 
+        //Plus button to add new advice
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -80,6 +80,7 @@ public class AdviceActivity extends AppCompatActivity {
                 startActivity(new Intent(AdviceActivity.this, NewAdvice.class));
             }
         });
+
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 }

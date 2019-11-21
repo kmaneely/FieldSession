@@ -6,8 +6,6 @@ import android.os.Bundle;
 import com.example.lifescribev01.database.AppDatabase;
 import com.example.lifescribev01.database.Person;
 import com.example.lifescribev01.database.Story;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -30,13 +28,16 @@ public class SelectedAdvice extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         play = findViewById(R.id.play);
 
+        //Get the advice ID from the one selected
         Bundle b = getIntent().getExtras();
         int id = b.getInt("id");
 
+        //Pulls the needed advice and people from the database
         AppDatabase appDb = MainActivity.GetDatabase();
         s = appDb.storyDao().findByID(id);
         Person p = appDb.personDao().findByID(s.personID);
 
+        //Fills out all of the fields in the selected advice
         EditText titleField = findViewById(R.id.title);
         titleField.setText(s.title);
         EditText doaField = findViewById(R.id.DOS);
