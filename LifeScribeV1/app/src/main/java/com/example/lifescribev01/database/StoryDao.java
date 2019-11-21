@@ -4,6 +4,7 @@ import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
+import androidx.room.Update;
 
 import java.util.List;
 
@@ -32,4 +33,7 @@ public interface StoryDao {
 
     @Query("SELECT COUNT(*) FROM story")
     int getNumberOfStories();
+
+    @Update
+    void updateStory(Story story);
 }
