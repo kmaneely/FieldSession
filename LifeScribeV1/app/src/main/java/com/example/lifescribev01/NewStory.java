@@ -69,7 +69,7 @@ public class NewStory extends AppCompatActivity {
 
         myAudioRecorder = new MediaRecorder();
 
-        outputFile = getExternalCacheDir().getAbsolutePath() + "/recording" + Integer.toString(storyCounter) + ".3gp";
+        outputFile = getExternalCacheDir().getAbsolutePath() + "/recording" + storyCounter + ".3gp";
 
         myAudioRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
         myAudioRecorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
@@ -87,7 +87,7 @@ public class NewStory extends AppCompatActivity {
                 } catch (IllegalStateException ise) {
                     System.out.println("illegal state");
                 } catch (IOException ioe) {
-                    System.out.println(ioe);
+                    System.out.println("illegal state");
                 }
                 record.setEnabled(false);
                 stop.setEnabled(true);
