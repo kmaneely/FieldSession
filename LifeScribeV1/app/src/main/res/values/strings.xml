@@ -26,4 +26,5 @@
     <string name="title_activity_selected_advice">SelectedAdvice</string>
     <string name="title_activity_new_person">NewPerson</string>
     <string name="title_activity_test">Test</string>
+    <string name="title_activity_edit_person">EditPerson</string>
 </resources>

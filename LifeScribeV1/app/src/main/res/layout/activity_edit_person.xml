@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".EditPerson">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@drawable/banner_people_v7"
+            app:popupTheme="@style/AppTheme.PopupOverlay"
+            app:navigationIcon="?attr/homeAsUpIndicator"
+            app:title="Edit Person"/>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <include layout="@layout/content_edit_person" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="?attr/actionBarSize"
+        android:orientation="vertical"
+        android:background="#ADA7A0">
+        <Button
+            android:id="@+id/loadimage"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.1"
+            android:ems="10"
+            android:text="Load Image"
+            android:background="@color/colorPrimary"/>
+
+        <TextView
+            android:id="@+id/targeturi"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:visibility="invisible"/>
+
+        <ImageView
+            android:id="@+id/targetimage"
+            android:layout_width="125dp"
+            android:layout_height="75dp"
+            android:layout_weight="0.1"
+            android:layout_gravity="center"
+            android:ems="10"
+            android:src="@drawable/question_mark_v6"
+            android:padding="7dp"
+            android:scaleType="centerCrop"
+            />
+        <EditText
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.1"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:hint="Name" />
+
+        <EditText
+            android:id="@+id/DOB"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.1"
+            android:ems="10"
+            android:inputType="date"
+            android:clickable="true"
+            android:hint="Date of Birth" />
+
+        <EditText
+            android:id="@+id/DOD"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.1"
+            android:ems="10"
+            android:inputType="date"
+            android:hint="Date of Death" />
+
+        <EditText
+            android:id="@+id/bio"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.6"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:hint="Bio" />
+
+        <Button
+            android:id="@+id/submit"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.1"
+            android:text="Submit"
+            android:visibility="visible"
+            android:background="@drawable/banner_people_v7"/>
+
+    </LinearLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
