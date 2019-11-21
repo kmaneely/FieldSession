@@ -118,6 +118,19 @@ public class SelectedPerson extends AppCompatActivity {
                 finish();
             }
         });
+
+        Button edit = findViewById(R.id.edit);
+        edit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(SelectedPerson.this, EditPerson.class);
+                i.putExtra("id", id);
+                startActivity(i);
+                finish();
+            }
+        });
+
+
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 

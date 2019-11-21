@@ -15,7 +15,15 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".EditPerson"></activity>
+        <activity
+            android:name=".EditPerson"
+            android:label="@string/title_activity_edit_person"
+            android:parentActivityName=".PeopleActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.lifescribev01.PeopleActivity" />
+        </activity>
         <activity
             android:name=".SelectedAdvice"
             android:label="Selected Advice"

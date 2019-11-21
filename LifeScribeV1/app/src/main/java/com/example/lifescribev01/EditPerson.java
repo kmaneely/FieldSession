@@ -1,46 +1,56 @@
 package com.example.lifescribev01;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
+
+import com.example.lifescribev01.database.AppDatabase;
+import com.example.lifescribev01.database.Person;
+
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.lifescribev01.database.AppDatabase;
-import com.example.lifescribev01.database.Person;
-
 import java.io.FileNotFoundException;
 
 public class EditPerson extends AppCompatActivity {
-
     String name, DOB, DOD, bio;
     TextView textTargetUri; //Gallery access
     ImageView targetImage; //Gallery access
-    Person testPerson;
+    Person person;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_new_people);
+        setContentView(R.layout.activity_edit_person);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        Bundle b = getIntent().getExtras();
+        final int id = b.getInt("id");
 
 
-
-
-        testPerson = new Person();
+        person = new Person();
         final AppDatabase appDb = MainActivity.GetDatabase();
+        Person selectedPerson = appDb.personDao().findByID(id);
+
+        final EditText nameField = findViewById(R.id.name);
+        nameField.setText(selectedPerson.name);
+        final EditText dobField = findViewById(R.id.DOB);
+        dobField.setText(selectedPerson.birthDate);
+        final EditText dodField = findViewById(R.id.DOD);
+        dodField.setText(selectedPerson.deathDate);
+        final EditText bioField = findViewById(R.id.bio);
+        bioField.setText(selectedPerson.bio);
 
         //Gallery access code
-        setContentView(R.layout.activity_new_people);
         Button buttonLoadImage = findViewById(R.id.loadimage);
         textTargetUri = findViewById(R.id.targeturi);
         targetImage = findViewById(R.id.targetimage);
@@ -62,20 +72,19 @@ public class EditPerson extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                final EditText nameField = (EditText) findViewById(R.id.name);
+                final EditText nameField = findViewById(R.id.name);
                 name = nameField.getText().toString();
-                final EditText dobField = (EditText) findViewById(R.id.DOB);
+                final EditText dobField = findViewById(R.id.DOB);
                 DOB = dobField.getText().toString();
-                final EditText dodField = (EditText) findViewById(R.id.DOD);
+                final EditText dodField = findViewById(R.id.DOD);
                 DOD = dodField.getText().toString();
-                final EditText bioField = (EditText) findViewById(R.id.bio);
+                final EditText bioField = findViewById(R.id.bio);
                 bio = bioField.getText().toString();
-                testPerson.name = name;
-                testPerson.birthDate = DOB;
-                testPerson.deathDate = DOD;
-                testPerson.bio = bio;
-                appDb.personDao().insert(testPerson);
-                System.out.println(testPerson.personID);
+                person.name = name;
+                person.birthDate = DOB;
+                person.deathDate = DOD;
+                person.bio = bio;
+                appDb.personDao().insert(person);
 
 
                 startActivity(new Intent(EditPerson.this, PeopleActivity.class));
@@ -97,12 +106,13 @@ public class EditPerson extends AppCompatActivity {
             try {
                 bitmap = BitmapFactory.decodeStream(getContentResolver().openInputStream(targetUri));
                 targetImage.setImageBitmap(bitmap);
-                testPerson.imageURI = targetUri.toString();
+                person.imageURI = targetUri.toString();
             } catch (FileNotFoundException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
             }
         }
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
     //Gallery access code
 }
