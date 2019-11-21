@@ -25,7 +25,7 @@ public class EditPerson extends AppCompatActivity {
     String name, DOB, DOD, bio;
     TextView textTargetUri; //Gallery access
     ImageView targetImage; //Gallery access
-    Person person;
+    Person selectedPerson = new Person();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,9 +37,8 @@ public class EditPerson extends AppCompatActivity {
         final int id = b.getInt("id");
 
 
-        person = new Person();
         final AppDatabase appDb = MainActivity.GetDatabase();
-        Person selectedPerson = appDb.personDao().findByID(id);
+        selectedPerson = appDb.personDao().findByID(id);
 
         final EditText nameField = findViewById(R.id.name);
         nameField.setText(selectedPerson.name);
@@ -80,11 +79,11 @@ public class EditPerson extends AppCompatActivity {
                 DOD = dodField.getText().toString();
                 final EditText bioField = findViewById(R.id.bio);
                 bio = bioField.getText().toString();
-                person.name = name;
-                person.birthDate = DOB;
-                person.deathDate = DOD;
-                person.bio = bio;
-                appDb.personDao().insert(person);
+                selectedPerson.name = name;
+                selectedPerson.birthDate = DOB;
+                selectedPerson.deathDate = DOD;
+                selectedPerson.bio = bio;
+                appDb.personDao().updatePerson(selectedPerson);
 
 
                 startActivity(new Intent(EditPerson.this, PeopleActivity.class));
@@ -106,7 +105,7 @@ public class EditPerson extends AppCompatActivity {
             try {
                 bitmap = BitmapFactory.decodeStream(getContentResolver().openInputStream(targetUri));
                 targetImage.setImageBitmap(bitmap);
-                person.imageURI = targetUri.toString();
+                selectedPerson.imageURI = targetUri.toString();
             } catch (FileNotFoundException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
