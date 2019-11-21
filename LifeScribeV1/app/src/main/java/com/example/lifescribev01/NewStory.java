@@ -108,8 +108,8 @@ public class NewStory extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 myAudioRecorder.stop();
-                /*myAudioRecorder.release();
-                myAudioRecorder = null;*/
+                myAudioRecorder.release();
+                myAudioRecorder = null;
                 record.setEnabled(true);
                 stop.setEnabled(false);
                 play.setEnabled(true);
