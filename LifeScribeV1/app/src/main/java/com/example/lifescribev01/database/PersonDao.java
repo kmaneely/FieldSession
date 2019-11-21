@@ -31,6 +31,9 @@ public interface PersonDao {
     @Delete
     void delete(Person people);
 
+    @Query("SELECT COUNT(*) FROM person")
+    int getNumberOfPeople();
+
     @Update
     void updatePerson(Person people);
 }
