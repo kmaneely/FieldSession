@@ -224,6 +224,7 @@
 
             <View
                 android:layout_height="2dp"
+                android:layout_width="0dp"
                 app:layout_constraintStart_toEndOf="@id/FamilyTreePerson6"
                 app:layout_constraintEnd_toStartOf="@id/FamilyTreePerson7"
                 app:layout_constraintBottom_toBottomOf="@id/FamilyTreePerson6"
