@@ -62,6 +62,7 @@ public class NewStory extends AppCompatActivity {
         record = findViewById(R.id.record);
         stop = findViewById(R.id.stop);
         play = findViewById(R.id.play);
+
         stop.setEnabled(false);
         play.setEnabled(false);
 
@@ -74,7 +75,6 @@ public class NewStory extends AppCompatActivity {
         myAudioRecorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
         myAudioRecorder.setAudioEncoder(MediaRecorder.OutputFormat.AMR_NB);
         myAudioRecorder.setOutputFile(outputFile);
-
 
 
         record.setOnClickListener(new View.OnClickListener() {

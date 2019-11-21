@@ -2,6 +2,7 @@ package com.example.lifescribev01;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.room.Room;
 
 import android.Manifest;
@@ -12,7 +13,13 @@ import android.view.View;
 
 import com.example.lifescribev01.database.AppDatabase;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity {
+
+    String[] appPermissions = {Manifest.permission.WRITE_EXTERNAL_STORAGE,Manifest.permission.READ_EXTERNAL_STORAGE,Manifest.permission.RECORD_AUDIO};
+    private static final int PERMISSIONS_REQUEST_CODE = 1240;
 
     static AppDatabase db;
     @Override
@@ -23,24 +30,10 @@ public class MainActivity extends AppCompatActivity {
         db = Room.databaseBuilder(getApplicationContext(),
                 AppDatabase.class, "people_database").allowMainThreadQueries().addMigrations(AppDatabase.MIGRATION_1_2, AppDatabase.MIGRATION_2_3, AppDatabase.MIGRATION_3_4, AppDatabase.MIGRATION_4_5).build();
 
-        int checkOne = ActivityCompat.checkSelfPermission(this, android.Manifest.permission.RECORD_AUDIO);
-        int checkTwo = ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE);
-        int checkThree = ActivityCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE);
-        if (checkOne == PackageManager.PERMISSION_GRANTED) {
-            //Do something
-        } else {
-            requestPermissions(new String[]{android.Manifest.permission.RECORD_AUDIO},1024);
+        if (checkAndRequestPermissions()) {
+            new MainActivity();
         }
-        if (checkTwo == PackageManager.PERMISSION_GRANTED) {
-            //Do something
-        } else {
-            requestPermissions(new String[]{android.Manifest.permission.READ_EXTERNAL_STORAGE},1024);
-        }
-        if (checkThree == PackageManager.PERMISSION_GRANTED) {
-            //Do something
-        } else {
-            requestPermissions(new String[]{android.Manifest.permission.WRITE_EXTERNAL_STORAGE},1024);
-        }
+
 
     }
 
@@ -61,5 +54,20 @@ public class MainActivity extends AppCompatActivity {
     public static AppDatabase GetDatabase()
     {
         return db;
+    }
+
+
+    public boolean checkAndRequestPermissions(){
+        List<String> listPermissionsNeeded = new ArrayList<>();
+        for(String perm:appPermissions){
+            if(ContextCompat.checkSelfPermission(this,perm) != PackageManager.PERMISSION_GRANTED){
+                listPermissionsNeeded.add(perm);
+            }
+        }
+        if(!listPermissionsNeeded.isEmpty()){
+            ActivityCompat.requestPermissions(this,listPermissionsNeeded.toArray(new String[listPermissionsNeeded.size()]),PERMISSIONS_REQUEST_CODE);
+            return false;
+        }
+        return true;
     }
 }

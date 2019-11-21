@@ -10,8 +10,8 @@
     <application
         android:allowBackup="true"
         android:icon="@mipmap/logo_temp"
-        android:label="LifeScribe"
-        android:roundIcon="@mipmap/logo_temp_round"
+        android:label="LoreGen"
+        android:roundIcon="@mipmap/logo_temp"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">

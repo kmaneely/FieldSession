@@ -39,7 +39,6 @@ public class SelectedPerson extends AppCompatActivity {
         setContentView(R.layout.activity_selected_person);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         Bundle b = getIntent().getExtras();
         final int id = b.getInt("id");
@@ -119,6 +118,7 @@ public class SelectedPerson extends AppCompatActivity {
                 finish();
             }
         });
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
 }

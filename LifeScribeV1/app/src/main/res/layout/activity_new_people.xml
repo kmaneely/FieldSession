@@ -15,7 +15,7 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="@drawable/banner_people_v6"
+            android:background="@drawable/banner_people_v7"
             app:popupTheme="@style/AppTheme.PopupOverlay"
             app:navigationIcon="?attr/homeAsUpIndicator"
             app:title="New Person"/>
@@ -52,7 +52,7 @@
             android:layout_weight="0.1"
             android:layout_gravity="center"
             android:ems="10"
-            android:src="@drawable/question_mark_v2"
+            android:src="@drawable/question_mark_v6"
             android:padding="7dp"
             android:scaleType="centerCrop"
             />
@@ -100,7 +100,7 @@
             android:layout_weight="0.1"
             android:text="Submit"
             android:visibility="visible"
-            android:background="@drawable/banner_people_v6"/>
+            android:background="@drawable/banner_people_v7"/>
 
     </LinearLayout>
 

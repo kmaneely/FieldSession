@@ -15,7 +15,7 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="@drawable/banner_people_v6"
+            android:background="@drawable/banner_people_v7"
             app:popupTheme="@style/AppTheme.PopupOverlay" />
 
     </com.google.android.material.appbar.AppBarLayout>
@@ -50,7 +50,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@id/DOB"
-                app:srcCompat="@drawable/logo_temp" />
+                app:srcCompat="@drawable/question_mark_v6" />
 
             <EditText
                 android:id="@+id/DOB"
@@ -109,7 +109,7 @@
             android:layout_weight="0.1"
             android:text="Submit Relationship"
             android:visibility="visible"
-            android:background="@drawable/banner_people_v6"/>
+            android:background="@drawable/banner_people_v7"/>
     </LinearLayout>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
