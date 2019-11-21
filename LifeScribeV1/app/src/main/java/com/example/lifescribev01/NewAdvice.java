@@ -48,23 +48,23 @@ public class NewAdvice extends AppCompatActivity {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                final EditText nameField = findViewById(R.id.name);
-                name = nameField.getText().toString();
-                final EditText doaField = findViewById(R.id.date);
-                DOA = doaField.getText().toString();
-                final Spinner personField = findViewById(R.id.person);
-                int personID = personField.getSelectedItemPosition() + 1;
-                final EditText bioField = findViewById(R.id.advice);
-                advice = bioField.getText().toString();
-                storyDB.title = name;
-                storyDB.date = DOA;
-                storyDB.personID = personID;
-                storyDB.text = advice;
-                storyDB.typeID = 2;
-                appDb.storyDao().insert(storyDB);
+            final EditText nameField = findViewById(R.id.name);
+            name = nameField.getText().toString();
+            final EditText doaField = findViewById(R.id.date);
+            DOA = doaField.getText().toString();
+            final Spinner personField = findViewById(R.id.person);
+            int personID = personField.getSelectedItemPosition() + 1;
+            final EditText bioField = findViewById(R.id.advice);
+            advice = bioField.getText().toString();
+            storyDB.title = name;
+            storyDB.date = DOA;
+            storyDB.personID = personID;
+            storyDB.text = advice;
+            storyDB.typeID = 2;
+            appDb.storyDao().insert(storyDB);
 
-                startActivity(new Intent(NewAdvice.this, AdviceActivity.class));
-                finish();
+            startActivity(new Intent(NewAdvice.this, AdviceActivity.class));
+            finish();
             }
         });
     }
