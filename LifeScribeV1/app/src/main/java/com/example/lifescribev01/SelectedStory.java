@@ -1,5 +1,6 @@
 package com.example.lifescribev01;
 
+import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 
@@ -32,7 +33,7 @@ public class SelectedStory extends AppCompatActivity {
 
 
         Bundle b = getIntent().getExtras();
-        int id = b.getInt("id");
+        final int id = b.getInt("id");
 
         AppDatabase appDb = MainActivity.GetDatabase();
         s = appDb.storyDao().findByID(id);
@@ -58,6 +59,18 @@ public class SelectedStory extends AppCompatActivity {
                 } catch (Exception e) {
                     System.out.println(e);
                 }
+            }
+        });
+
+
+        Button edit = findViewById(R.id.edit);
+        edit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(SelectedStory.this, EditStory.class);
+                i.putExtra("id", id);
+                startActivity(i);
+                finish();
             }
         });
     }
