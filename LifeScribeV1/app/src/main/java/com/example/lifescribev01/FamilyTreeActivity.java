@@ -87,25 +87,25 @@ public class FamilyTreeActivity extends AppCompatActivity {
             Child1.setText(targetChildren.get(0).name);
         }
         else{
-            Child1.setVisibility(View.INVISIBLE);;
+            Child1.setVisibility(View.INVISIBLE);
         }
         if(targetChildren.size()>=2 && targetChildren.get(1)!=null){
             Child2.setText(targetChildren.get(1).name);
         }
         else{
-            Child2.setVisibility(View.INVISIBLE);;
+            Child2.setVisibility(View.INVISIBLE);
         }
         if(targetChildren.size()>=3 && targetChildren.get(2)!=null){
             Child3.setText(targetChildren.get(2).name);
         }
         else{
-            Child3.setVisibility(View.INVISIBLE);;
+            Child3.setVisibility(View.INVISIBLE);
         }
         if(targetChildren.size()>=4 && targetChildren.get(3)!=null){
             Child4.setText(targetChildren.get(3).name);
         }
         else{
-            Child4.setVisibility(View.INVISIBLE);;
+            Child4.setVisibility(View.INVISIBLE);
         }
 
 

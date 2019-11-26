@@ -28,4 +28,5 @@
     <string name="title_activity_test">Test</string>
     <string name="title_activity_edit_person">EditPerson</string>
     <string name="title_activity_edit_story">EditStory</string>
+    <string name="title_activity_edit_advice">EditAdvice</string>
 </resources>

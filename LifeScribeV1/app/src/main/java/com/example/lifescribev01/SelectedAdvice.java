@@ -1,5 +1,6 @@
 package com.example.lifescribev01;
 
+import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 
@@ -30,7 +31,7 @@ public class SelectedAdvice extends AppCompatActivity {
 
         //Get the advice ID from the one selected
         Bundle b = getIntent().getExtras();
-        int id = b.getInt("id");
+        final int id = b.getInt("id");
 
         //Pulls the needed advice and people from the database
         AppDatabase appDb = MainActivity.GetDatabase();
@@ -56,8 +57,20 @@ public class SelectedAdvice extends AppCompatActivity {
                     mediaPlayer.prepare();
                     mediaPlayer.start();
                 } catch (Exception e) {
-                    System.out.println(e);
+                    System.out.println("illegal state");
                 }
+            }
+        });
+
+
+        Button edit = findViewById(R.id.edit);
+        edit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(SelectedAdvice.this, EditAdvice.class);
+                i.putExtra("id", id);
+                startActivity(i);
+                finish();
             }
         });
     }
