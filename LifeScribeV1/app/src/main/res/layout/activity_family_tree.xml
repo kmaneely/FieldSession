@@ -37,7 +37,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             android:layout_marginTop="100dp"
-            android:layout_marginBottom="50dp"
             android:layout_marginLeft="25dp"
             android:layout_marginRight="25dp">
 
@@ -67,8 +66,8 @@
                 android:layout_height="2dp"
                 app:layout_constraintEnd_toStartOf="@id/FamilyTreePerson2"
                 app:layout_constraintStart_toEndOf="@id/FamilyTreePerson"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="@id/FamilyTreePerson"
+                app:layout_constraintBottom_toBottomOf="@id/FamilyTreePerson"
                 android:background="#c0c0c0"/>
 
             <View
@@ -78,8 +77,7 @@
                 app:layout_constraintEnd_toEndOf="@id/parent_line"
                 app:layout_constraintStart_toStartOf="@id/parent_line"
                 app:layout_constraintBottom_toBottomOf="parent"
-                android:layout_height="0dp"
-                android:layout_alignTop="@id/parent_line"
+                android:layout_height="100dp"
                 android:background="#c0c0c0"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -92,9 +90,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/parent_box"
             app:layout_constraintBottom_toTopOf="@id/spouse_box"
-            android:layout_alignParentLeft="true"
-            android:layout_below="@+id/parent_box"
-            android:layout_marginBottom="80dp"
             android:layout_marginLeft="25dp"
             android:layout_marginRight="25dp"
             android:orientation="horizontal">
@@ -103,9 +98,19 @@
                 android:id="@+id/parent_sibling_across"
                 android:layout_width="0dp"
                 app:layout_constraintEnd_toStartOf="@id/parent_sibling_1"
-                app:layout_constraintStart_toEndOf="@id/parent_sibling_3"
+                app:layout_constraintStart_toEndOf="@id/parent_self"
                 android:layout_height="2dp"
                 app:layout_constraintTop_toTopOf="parent"
+                android:background="#c0c0c0"/>
+
+            <View
+                android:id="@+id/parent_self"
+                android:layout_width="2dp"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_height="175dp"
+                app:layout_constraintTop_toBottomOf="@id/parent_sibling_across"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginLeft="35dp"
                 android:background="#c0c0c0"/>
 
             <View
@@ -123,10 +128,9 @@
                 android:layout_width="75dp"
                 android:layout_height="75dp"
                 android:background="@drawable/circle_empty"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/parent_sibling_1"
                 app:layout_constraintEnd_toEndOf="parent"
                 android:layout_marginLeft="10dp"
-                android:layout_marginTop="30dp"
                 android:text="Name3" />
 
             <Button
@@ -134,7 +138,7 @@
                 android:layout_width="75dp"
                 android:layout_height="75dp"
                 android:background="@drawable/circle_empty"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/parent_sibling_2"
                 app:layout_constraintEnd_toStartOf="@id/FamilyTreePerson3"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
@@ -155,7 +159,7 @@
                 android:layout_width="75dp"
                 android:layout_height="75dp"
                 android:background="@drawable/circle_empty"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/parent_sibling_3"
                 app:layout_constraintEnd_toStartOf="@id/FamilyTreePerson4"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
@@ -169,8 +173,6 @@
                 app:layout_constraintStart_toStartOf="@id/FamilyTreePerson5"
                 app:layout_constraintTop_toBottomOf="@id/parent_sibling_across"
                 app:layout_constraintBottom_toTopOf="@id/FamilyTreePerson5"
-                android:layout_above="@id/FamilyTreePerson4"
-                android:layout_centerHorizontal="true"
                 android:background="#c0c0c0"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -186,7 +188,6 @@
             app:layout_constraintBottom_toTopOf="@id/child_box"
             android:layout_alignParentLeft="true"
             android:layout_below="@+id/sibling_box"
-            android:layout_marginBottom="80dp"
             android:layout_marginLeft="25dp"
             android:layout_marginRight="25dp">
 
@@ -200,23 +201,13 @@
                 android:layout_marginRight="10dp"
                 android:text="Name6" />
 
-            <View
-                android:id="@+id/parent_self"
-                android:layout_width="2dp"
-                android:layout_height="100dp"
-                app:layout_constraintEnd_toEndOf="@id/FamilyTreePerson6"
-                app:layout_constraintStart_toStartOf="@id/FamilyTreePerson6"
-                app:layout_constraintBottom_toTopOf="@id/FamilyTreePerson6"
-                app:layout_constraintTop_toTopOf="parent"
-                android:background="#c0c0c0"/>
-
             <Button
                 android:id="@+id/FamilyTreePerson7"
                 android:layout_width="75dp"
                 android:layout_height="75dp"
                 android:background="@drawable/circle_empty"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintTop_toTopOf="@id/FamilyTreePerson6"
                 android:layout_marginLeft="10dp"
                 android:text="Name7" />
 
@@ -238,7 +229,7 @@
                 app:layout_constraintEnd_toEndOf="@id/spouse_line"
                 app:layout_constraintStart_toStartOf="@id/spouse_line"
                 app:layout_constraintBottom_toBottomOf="parent"
-                android:layout_height="0dp"
+                android:layout_height="100dp"
                 android:background="#c0c0c0"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -250,9 +241,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/spouse_box"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_alignParentLeft="true"
-            android:layout_below="@+id/spouse_box"
             android:layout_marginBottom="80dp"
             android:layout_marginLeft="25dp"
             android:layout_marginRight="25dp">
@@ -260,11 +248,11 @@
             <View
                 android:id="@+id/spouse_child_across"
                 android:layout_width="0dp"
-                android:background="#c0c0c0"
-                app:layout_constraintEnd_toStartOf="@id/child_1"
-                app:layout_constraintStart_toEndOf="@id/child_4"
+                app:layout_constraintEnd_toStartOf="@id/child_4"
+                app:layout_constraintStart_toEndOf="@id/child_1"
                 android:layout_height="2dp"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                android:background="#c0c0c0"/>
 
             <View
                 android:id="@+id/child_1"
@@ -282,7 +270,7 @@
                 android:layout_height="75dp"
                 android:background="@drawable/circle_empty"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
                 android:text="Name8" />
 
             <Button
@@ -291,7 +279,7 @@
                 android:layout_height="75dp"
                 android:background="@drawable/circle_empty"
                 app:layout_constraintStart_toEndOf="@id/FamilyTreePerson8"
-                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
                 android:text="Name9" />
@@ -312,7 +300,7 @@
                 android:layout_height="75dp"
                 android:background="@drawable/circle_empty"
                 app:layout_constraintStart_toEndOf="@id/FamilyTreePerson9"
-                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
                 android:text="Name10" />
@@ -323,7 +311,7 @@
                 android:layout_height="75dp"
                 android:background="@drawable/circle_empty"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
                 android:layout_marginLeft="10dp"
                 android:text="Name11" />
 
