@@ -59,13 +59,13 @@ public class NewPeople extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                final EditText nameField = (EditText) findViewById(R.id.name);
+                final EditText nameField = findViewById(R.id.name);
                 name = nameField.getText().toString();
-                final EditText dobField = (EditText) findViewById(R.id.DOB);
+                final EditText dobField = findViewById(R.id.DOB);
                 DOB = dobField.getText().toString();
-                final EditText dodField = (EditText) findViewById(R.id.DOD);
+                final EditText dodField = findViewById(R.id.DOD);
                 DOD = dodField.getText().toString();
-                final EditText bioField = (EditText) findViewById(R.id.bio);
+                final EditText bioField = findViewById(R.id.bio);
                 bio = bioField.getText().toString();
                 testPerson.name = name;
                 testPerson.birthDate = DOB;

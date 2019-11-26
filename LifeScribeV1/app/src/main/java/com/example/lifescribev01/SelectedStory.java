@@ -57,7 +57,7 @@ public class SelectedStory extends AppCompatActivity {
                     mediaPlayer.prepare();
                     mediaPlayer.start();
                 } catch (Exception e) {
-                    System.out.println(e);
+                    System.out.println("illegal state");
                 }
             }
         });

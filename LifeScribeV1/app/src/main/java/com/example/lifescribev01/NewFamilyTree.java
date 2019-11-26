@@ -24,6 +24,7 @@ import android.widget.Spinner;
 import java.util.ArrayList;
 import java.util.List;
 
+@SuppressWarnings("ALL")
 public class NewFamilyTree extends AppCompatActivity {
 
     private RecyclerView peopleList;
