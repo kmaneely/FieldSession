@@ -29,7 +29,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class EditStory extends AppCompatActivity {
+public class EditAdvice extends AppCompatActivity {
     String name, DOS, person, story;
     Button play, record, stop;
     private MediaRecorder myAudioRecorder;
@@ -40,7 +40,7 @@ public class EditStory extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_new_story);
+        setContentView(R.layout.activity_edit_advice);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -153,11 +153,11 @@ public class EditStory extends AppCompatActivity {
                 storyDB.date = DOS;
                 storyDB.personID = personID;
                 storyDB.text = story;
-                storyDB.typeID = 1;
+                storyDB.typeID = 2;
                 storyDB.audioPathID = outputFile;
                 appDb.storyDao().updateStory(storyDB);
 
-                startActivity(new Intent(EditStory.this, StoriesActivity.class));
+                startActivity(new Intent(EditAdvice.this, AdviceActivity.class));
                 finish();
             }
         });

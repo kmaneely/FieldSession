@@ -16,6 +16,15 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
         <activity
+            android:name=".EditAdvice"
+            android:label="@string/title_activity_edit_advice"
+            android:parentActivityName=".AdviceActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.lifescribev01.AdviceActivity" />
+        </activity>
+        <activity
             android:name=".EditStory"
             android:label="@string/title_activity_edit_story"
             android:parentActivityName=".StoriesActivity"

@@ -59,6 +59,15 @@
             android:layout_weight=".1"
             android:text="Play Audio" />
 
+        <Button
+            android:id="@+id/edit"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.1"
+            android:text="Edit"
+            android:visibility="visible"
+            android:background="@drawable/banner_stories_v6"/>
+
     </LinearLayout>
 
     <com.google.android.material.appbar.AppBarLayout
