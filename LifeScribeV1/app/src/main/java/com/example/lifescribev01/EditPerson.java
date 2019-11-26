@@ -39,6 +39,7 @@ public class EditPerson extends AppCompatActivity {
 
         final AppDatabase appDb = MainActivity.GetDatabase();
         selectedPerson = appDb.personDao().findByID(id);
+        ImageView image = findViewById(R.id.targetimage);
 
         final EditText nameField = findViewById(R.id.name);
         nameField.setText(selectedPerson.name);
@@ -48,6 +49,20 @@ public class EditPerson extends AppCompatActivity {
         dodField.setText(selectedPerson.deathDate);
         final EditText bioField = findViewById(R.id.bio);
         bioField.setText(selectedPerson.bio);
+
+        if(appDb.personDao().findByID(id).imageURI != null){
+            Uri targetUri = Uri.parse(appDb.personDao().findByID(id).imageURI);
+            Bitmap bitmap;
+            try {
+                bitmap = BitmapFactory.decodeStream(getContentResolver().openInputStream(targetUri));
+                image.setImageBitmap(bitmap);
+            } catch (FileNotFoundException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+        }else{
+            //default image
+        }
 
         //Gallery access code
         Button buttonLoadImage = findViewById(R.id.loadimage);
